@@ -56,10 +56,14 @@ export default {
         "gradient-primary": "var(--gradient-primary)",
         "gradient-accent": "var(--gradient-accent)",
         "gradient-calm": "var(--gradient-calm)",
+        "gradient-luxury": "var(--gradient-luxury)",
+        "gradient-success": "var(--gradient-success)",
+        shimmer: "var(--shimmer)",
       },
       boxShadow: {
         glow: "var(--shadow-glow)",
         card: "var(--shadow-card)",
+        luxury: "var(--shadow-luxury)",
       },
       transitionProperty: {
         smooth: "var(--transition-smooth)",
@@ -114,6 +118,22 @@ export default {
             opacity: "0.5",
           },
         },
+        shimmer: {
+          "0%": {
+            backgroundPosition: "-200% 0",
+          },
+          "100%": {
+            backgroundPosition: "200% 0",
+          },
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -121,6 +141,8 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         breathe: "breathe 4s ease-in-out infinite",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        shimmer: "shimmer 3s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
       },
     },
   },

@@ -95,13 +95,28 @@ const Index = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
             Choose Your Intent
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Phase-locked generation at your device's native sample rate—no resampling, no drift.
+            Experience the precision of million-dollar audio engineering.
           </p>
+          <div className="mt-6 flex items-center justify-center gap-4 text-sm text-muted-foreground">
+            <span className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              440 Hz Standard
+            </span>
+            <span className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              432 Hz Universal
+            </span>
+            <span className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-gradient-success animate-pulse" />
+              528 Hz Solfeggio
+            </span>
+          </div>
         </div>
 
         {loading ? (

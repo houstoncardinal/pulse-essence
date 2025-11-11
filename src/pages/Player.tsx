@@ -220,20 +220,20 @@ export default function Player() {
             <Button
               size="lg"
               onClick={handlePlay}
-              className="bg-gradient-primary hover:opacity-90 px-12"
+              className="bg-gradient-primary hover:shadow-luxury shadow-glow px-16 py-6 text-lg font-bold transition-all duration-300 hover:scale-105"
             >
-              <Play className="w-5 h-5 mr-2" />
-              {elapsedSeconds > 0 ? 'Resume' : 'Start'}
+              <Play className="w-6 h-6 mr-3 fill-white" />
+              {elapsedSeconds > 0 ? 'Resume Session' : 'Start Session'}
             </Button>
           ) : (
             <Button
               size="lg"
               onClick={handlePause}
               variant="secondary"
-              className="px-12"
+              className="px-16 py-6 text-lg font-bold hover:shadow-card transition-all duration-300 hover:scale-105"
             >
-              <Pause className="w-5 h-5 mr-2" />
-              Pause
+              <Pause className="w-6 h-6 mr-3" />
+              Pause Session
             </Button>
           )}
         </div>
