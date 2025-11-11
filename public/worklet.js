@@ -46,9 +46,14 @@ class BinauralEngineWorklet extends AudioWorkletProcessor {
       const mode = Math.floor(this.getParamValue(parameters.mode, i));
       const depth = this.getParamValue(parameters.isochronicDepth, i);
       const noiseLevel = this.getParamValue(parameters.noiseLevel, i);
+      const tuningRef = this.getParamValue(parameters.tuningRef, i);
 
-      const fL = fBase;
-      const fR = fBase + beat;
+      // Apply tuning reference scaling (e.g., 432Hz vs 440Hz)
+      const tuningScale = tuningRef / 440.0;
+      const fBaseScaled = fBase * tuningScale;
+
+      const fL = fBaseScaled;
+      const fR = fBaseScaled + beat;
 
       let sampleL = 0;
       let sampleR = 0;
@@ -61,8 +66,8 @@ class BinauralEngineWorklet extends AudioWorkletProcessor {
         sampleR = Math.sin(this.phiR) * amp;
       } else if (mode === 1) {
         // Monaural
-        this.phiL += (2 * Math.PI * fBase) / this.sr;
-        this.phiR += (2 * Math.PI * (fBase + beat)) / this.sr;
+        this.phiL += (2 * Math.PI * fBaseScaled) / this.sr;
+        this.phiR += (2 * Math.PI * (fBaseScaled + beat)) / this.sr;
         const s = (Math.sin(this.phiL) + Math.sin(this.phiR)) * 0.5 * amp;
         sampleL = s;
         sampleR = s;
@@ -70,7 +75,7 @@ class BinauralEngineWorklet extends AudioWorkletProcessor {
         // Isochronic
         this.phiBeat += (2 * Math.PI * beat) / this.sr;
         const lfo = (1 - depth) + depth * (0.5 + 0.5 * Math.sin(this.phiBeat));
-        this.phiL += (2 * Math.PI * fBase) / this.sr;
+        this.phiL += (2 * Math.PI * fBaseScaled) / this.sr;
         const s = Math.sin(this.phiL) * amp * lfo;
         sampleL = s;
         sampleR = s;

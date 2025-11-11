@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { IntentCard } from '@/components/IntentCard';
 import { useAuth } from '@/contexts/AuthContext';
-import { Waves, LogOut, User, Sparkles, Brain, Zap, Shield } from 'lucide-react';
+import { Waves, LogOut, User, Sliders } from 'lucide-react';
 
 interface IntentGroup {
   intent: string;
@@ -89,7 +89,15 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <Button 
+              variant="outline" 
+              onClick={() => navigate('/custom-tuner')}
+              className="gap-2"
+            >
+              <Sliders className="w-4 h-4" />
+              <span className="hidden sm:inline">Custom Tuner</span>
+            </Button>
             {user ? (
               <>
                 <Button variant="ghost" size="icon">
@@ -116,14 +124,15 @@ const Index = () => {
             <span className="text-sm text-primary font-medium">Neural Audio Engineering</span>
           </div>
 
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
-            <span className="text-foreground">Precision</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
+            <span className="text-foreground">Neural Audio</span>
             <br />
-            <span className="text-primary">Brainwave Entrainment</span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent">Engineering</span>
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-            Sample-accurate phase synthesis. Zero-drift generation. <br />Professional-grade neural modulation at 440Hz, 432Hz, and 528Hz.
+            Phase-accurate binaural synthesis. Zero-drift precision.<br className="hidden sm:block" />
+            Professional-grade brainwave entrainment.
           </p>
 
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
