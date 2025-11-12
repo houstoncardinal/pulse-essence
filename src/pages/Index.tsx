@@ -78,37 +78,39 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-gradient-primary shadow-soft">
-              <Waves className="w-6 h-6 text-white" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-primary shadow-soft">
+              <Waves className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-semibold tracking-tight">AuralForge</h1>
-              <p className="text-xs text-muted-foreground">Neural Entrainment Platform</p>
+              <h1 className="text-base sm:text-xl font-semibold tracking-tight">AuralForge</h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">Neural Entrainment Platform</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             <Button 
               variant="outline" 
+              size="sm"
               onClick={() => navigate('/custom-tuner')}
-              className="gap-2"
+              className="gap-1 sm:gap-2 h-8 sm:h-10"
             >
-              <Sliders className="w-4 h-4" />
-              <span className="hidden sm:inline">Custom Tuner</span>
+              <Sliders className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline text-xs sm:text-sm">Custom Tuner</span>
+              <span className="sm:hidden text-xs">Tuner</span>
             </Button>
             {user ? (
               <>
-                <Button variant="ghost" size="icon">
-                  <User className="w-5 h-5" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">
+                  <User className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
-                <Button variant="ghost" size="icon" onClick={signOut}>
-                  <LogOut className="w-5 h-5" />
+                <Button variant="ghost" size="icon" onClick={signOut} className="h-8 w-8 sm:h-10 sm:w-10">
+                  <LogOut className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
               </>
             ) : (
-              <Button onClick={() => navigate('/auth')} variant="outline">
+              <Button onClick={() => navigate('/auth')} variant="outline" size="sm" className="h-8 sm:h-10 text-xs sm:text-sm">
                 Sign In
               </Button>
             )}
@@ -116,77 +118,77 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero Section */}
-        <section className="py-24 md:py-32 text-center">
+        <section className="py-12 sm:py-20 md:py-32 text-center">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-medium text-primary">Scientifically Validated Technology</span>
+              <span className="text-[10px] sm:text-xs font-medium text-primary">Scientifically Validated Technology</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight px-2">
               <span className="text-foreground">Precision Neural</span>
               <br />
               <span className="bg-gradient-primary bg-clip-text text-transparent">Audio Engineering</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
+            <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-4">
               Phase-accurate binaural beat synthesis with zero-drift precision.<br className="hidden sm:block" />
               Professional-grade brainwave entrainment for focus, relaxation, and peak performance.
             </p>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto mb-8 sm:mb-12 px-4">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">±0.001 Hz</div>
-                <div className="text-sm text-muted-foreground">Frequency Accuracy</div>
+                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">±0.001 Hz</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Frequency Accuracy</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">0 ms</div>
-                <div className="text-sm text-muted-foreground">Phase Drift</div>
+                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">0 ms</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Phase Drift</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">48 kHz</div>
-                <div className="text-sm text-muted-foreground">Sample Rate</div>
+                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">48 kHz</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Sample Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">440/432/528</div>
-                <div className="text-sm text-muted-foreground">Hz Tuning Options</div>
+                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">440/432/528</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Hz Tuning</div>
               </div>
             </div>
 
             {/* Feature Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-3 text-sm">
-              <span className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Phase-Locked Synthesis</span>
-              <span className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Web Audio API</span>
-              <span className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Real-Time Processing</span>
-              <span className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Studio Quality</span>
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm px-4">
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Phase-Locked</span>
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Web Audio API</span>
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Real-Time</span>
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Studio Quality</span>
             </div>
           </div>
         </section>
 
         {/* Sessions Section */}
-        <section className="py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <section className="py-8 sm:py-12 md:py-16">
+          <div className="text-center mb-8 sm:mb-12 px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
               Curated Sessions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Scientifically-crafted binaural beats optimized for focus, deep relaxation, creativity, and peak performance
             </p>
           </div>
 
           {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <div key={i} className="animate-pulse">
-                  <div className="h-64 bg-muted rounded-xl" />
+                  <div className="h-56 sm:h-64 bg-muted rounded-xl" />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 animate-fade-in">
               {intents.map((intent, index) => (
                 <div 
                   key={intent.intent} 
@@ -206,115 +208,115 @@ const Index = () => {
         </section>
 
         {/* How It Works Section */}
-        <section className="py-24 border-t border-border">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <section className="py-12 sm:py-16 md:py-24 border-t border-border">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
               How Binaural Beats Work
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Understanding the science behind neural entrainment and brainwave synchronization
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 mb-8 sm:mb-12 md:mb-16">
             {/* The Science */}
-            <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-card border border-border shadow-soft">
-                <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold">1</span>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="p-4 sm:p-6 rounded-xl bg-card border border-border shadow-soft">
+                <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-sm sm:text-base">1</span>
                   </div>
                   The Frequency Following Response
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   When different pure tones are presented to each ear through headphones, the brain perceives a third tone—the binaural beat. This phenomenon occurs in the brain's superior olivary complex, where auditory signals converge.
                 </p>
               </div>
 
-              <div className="p-6 rounded-xl bg-card border border-border shadow-soft">
-                <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <span className="text-accent font-bold">2</span>
+              <div className="p-4 sm:p-6 rounded-xl bg-card border border-border shadow-soft">
+                <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-accent font-bold text-sm sm:text-base">2</span>
                   </div>
                   Neural Entrainment
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   The brain naturally synchronizes its electrical activity to match external rhythmic stimuli—a process called entrainment. Binaural beats leverage this to guide brainwaves toward desired frequency ranges.
                 </p>
               </div>
 
-              <div className="p-6 rounded-xl bg-card border border-border shadow-soft">
-                <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold">3</span>
+              <div className="p-4 sm:p-6 rounded-xl bg-card border border-border shadow-soft">
+                <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 flex items-center gap-2">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-sm sm:text-base">3</span>
                   </div>
                   Precision Matters
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   Our phase-locked synthesis ensures zero frequency drift and sub-millisecond accuracy. This precision is critical—even small deviations can prevent effective entrainment and reduce the therapeutic benefit.
                 </p>
               </div>
             </div>
 
             {/* Brainwave States */}
-            <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-gradient-primary text-white shadow-elevated">
-                <h3 className="text-xl font-semibold mb-4">Brainwave States</h3>
-                <div className="space-y-4">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="p-4 sm:p-6 rounded-xl bg-gradient-primary text-white shadow-elevated">
+                <h3 className="text-base sm:text-xl font-semibold mb-3 sm:mb-4">Brainwave States</h3>
+                <div className="space-y-3 sm:space-y-4">
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-medium">Delta (0.5-4 Hz)</span>
-                      <span className="text-sm opacity-90">Deep Sleep</span>
+                    <div className="flex items-center justify-between mb-1 gap-2">
+                      <span className="font-medium text-xs sm:text-sm">Delta (0.5-4 Hz)</span>
+                      <span className="text-[10px] sm:text-sm opacity-90">Deep Sleep</span>
                     </div>
-                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
                       <div className="h-full bg-white rounded-full w-[15%]"></div>
                     </div>
                   </div>
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-medium">Theta (4-8 Hz)</span>
-                      <span className="text-sm opacity-90">Meditation, Creativity</span>
+                    <div className="flex items-center justify-between mb-1 gap-2">
+                      <span className="font-medium text-xs sm:text-sm">Theta (4-8 Hz)</span>
+                      <span className="text-[10px] sm:text-sm opacity-90">Meditation</span>
                     </div>
-                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
                       <div className="h-full bg-white rounded-full w-[30%]"></div>
                     </div>
                   </div>
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-medium">Alpha (8-12 Hz)</span>
-                      <span className="text-sm opacity-90">Relaxed Focus</span>
+                    <div className="flex items-center justify-between mb-1 gap-2">
+                      <span className="font-medium text-xs sm:text-sm">Alpha (8-12 Hz)</span>
+                      <span className="text-[10px] sm:text-sm opacity-90">Relaxed Focus</span>
                     </div>
-                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
                       <div className="h-full bg-white rounded-full w-[50%]"></div>
                     </div>
                   </div>
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-medium">Beta (12-30 Hz)</span>
-                      <span className="text-sm opacity-90">Active Thinking</span>
+                    <div className="flex items-center justify-between mb-1 gap-2">
+                      <span className="font-medium text-xs sm:text-sm">Beta (12-30 Hz)</span>
+                      <span className="text-[10px] sm:text-sm opacity-90">Active</span>
                     </div>
-                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
                       <div className="h-full bg-white rounded-full w-[70%]"></div>
                     </div>
                   </div>
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-medium">Gamma (30-100 Hz)</span>
-                      <span className="text-sm opacity-90">Peak Cognition</span>
+                    <div className="flex items-center justify-between mb-1 gap-2">
+                      <span className="font-medium text-xs sm:text-sm">Gamma (30-100 Hz)</span>
+                      <span className="text-[10px] sm:text-sm opacity-90">Peak</span>
                     </div>
-                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
                       <div className="h-full bg-white rounded-full w-[90%]"></div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 rounded-xl bg-card border border-border shadow-soft">
-                <h3 className="text-xl font-semibold mb-3">Why Headphones Are Essential</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
+              <div className="p-4 sm:p-6 rounded-xl bg-card border border-border shadow-soft">
+                <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3">Why Headphones Are Essential</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
                   Binaural beats require stereo separation to work effectively. Each ear must receive its designated frequency independently. Speakers allow frequencies to mix in the air before reaching your ears, eliminating the binaural effect.
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   For best results, use quality over-ear headphones in a quiet environment.
                 </p>
               </div>
@@ -322,8 +324,8 @@ const Index = () => {
           </div>
 
           {/* Safety Notice */}
-          <div className="max-w-3xl mx-auto p-6 rounded-xl bg-muted/50 border border-border">
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">
+          <div className="max-w-3xl mx-auto p-4 sm:p-6 rounded-xl bg-muted/50 border border-border">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center leading-relaxed">
               <strong className="text-foreground">Important:</strong> This technology is not medical advice and should not replace professional healthcare. 
               Use at comfortable volumes. Avoid while driving or operating machinery. 
               Discontinue if you experience discomfort. Not recommended for individuals with epilepsy or seizure disorders.
@@ -333,15 +335,15 @@ const Index = () => {
       </main>
 
       <footer className="border-t border-border bg-background">
-        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-center">
+          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
             <div className="p-1.5 rounded-lg bg-gradient-primary">
-              <Waves className="w-5 h-5 text-white" />
+              <Waves className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <span className="text-lg font-semibold">AuralForge</span>
+            <span className="text-base sm:text-lg font-semibold">AuralForge</span>
           </div>
-          <p className="text-sm text-muted-foreground mb-2">© 2025 AuralForge. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground">Phase-locked synthesis • Zero drift • Sample-accurate</p>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-2">© 2025 AuralForge. All rights reserved.</p>
+          <p className="text-[10px] sm:text-xs text-muted-foreground">Phase-locked synthesis • Zero drift • Sample-accurate</p>
         </div>
       </footer>
     </div>

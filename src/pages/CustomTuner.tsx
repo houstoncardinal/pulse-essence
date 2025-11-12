@@ -95,29 +95,27 @@ const CustomTuner = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
-              <ArrowLeft className="w-5 h-5" />
-            </Button>
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-gradient-primary">
-                <Waves className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold">Custom Frequency Tuner</h1>
-                <p className="text-xs text-muted-foreground">Precision neural entrainment</p>
-              </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-4">
+          <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="h-8 w-8 sm:h-10 sm:w-10">
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+          </Button>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-primary">
+              <Waves className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-base sm:text-xl font-semibold">Custom Frequency Tuner</h1>
+              <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">Precision neural entrainment</p>
             </div>
           </div>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 py-12">
-        <Card className="p-8 mb-6">
-          <div className="flex items-start gap-3 mb-8 p-4 rounded-lg bg-primary/5 border border-primary/10">
-            <Info className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-            <div className="text-sm">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12">
+        <Card className="p-4 sm:p-6 md:p-8 mb-4 sm:mb-6">
+          <div className="flex items-start gap-2 sm:gap-3 mb-6 sm:mb-8 p-3 sm:p-4 rounded-lg bg-primary/5 border border-primary/10">
+            <Info className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
+            <div className="text-xs sm:text-sm">
               <p className="text-foreground font-medium mb-1">Professional-Grade Audio Synthesis</p>
               <p className="text-muted-foreground">
                 This tool generates phase-accurate binaural beats, monaural beats, or isochronic tones at your exact specifications. 
@@ -126,13 +124,13 @@ const CustomTuner = () => {
             </div>
           </div>
 
-          <Tabs defaultValue="basic" className="mb-8">
+          <Tabs defaultValue="basic" className="mb-6 sm:mb-8">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="basic">Basic Controls</TabsTrigger>
               <TabsTrigger value="advanced">Advanced</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="basic" className="space-y-8 mt-8">
+            <TabsContent value="basic" className="space-y-6 sm:space-y-8 mt-6 sm:mt-8">
               {/* Mode Selection */}
               <div className="space-y-3">
                 <Label className="text-sm font-medium">Entrainment Mode</Label>
@@ -197,36 +195,36 @@ const CustomTuner = () => {
               {/* Tuning Reference */}
               <div className="space-y-3">
                 <Label className="text-sm font-medium">Tuning Reference</Label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   <Button
                     variant={tuningRef === 440 ? "default" : "outline"}
                     onClick={() => setTuningRef(440)}
-                    className="w-full"
+                    className="w-full flex flex-col h-auto py-2 sm:py-3"
                   >
-                    440 Hz
-                    <span className="block text-xs opacity-70">Standard</span>
+                    <span className="text-xs sm:text-sm font-semibold">440 Hz</span>
+                    <span className="text-[10px] sm:text-xs opacity-70">Standard</span>
                   </Button>
                   <Button
                     variant={tuningRef === 432 ? "default" : "outline"}
                     onClick={() => setTuningRef(432)}
-                    className="w-full"
+                    className="w-full flex flex-col h-auto py-2 sm:py-3"
                   >
-                    432 Hz
-                    <span className="block text-xs opacity-70">Universal</span>
+                    <span className="text-xs sm:text-sm font-semibold">432 Hz</span>
+                    <span className="text-[10px] sm:text-xs opacity-70">Universal</span>
                   </Button>
                   <Button
                     variant={tuningRef === 528 ? "default" : "outline"}
                     onClick={() => setTuningRef(528)}
-                    className="w-full"
+                    className="w-full flex flex-col h-auto py-2 sm:py-3"
                   >
-                    528 Hz
-                    <span className="block text-xs opacity-70">Solfeggio</span>
+                    <span className="text-xs sm:text-sm font-semibold">528 Hz</span>
+                    <span className="text-[10px] sm:text-xs opacity-70">Solfeggio</span>
                   </Button>
                 </div>
               </div>
             </TabsContent>
 
-            <TabsContent value="advanced" className="space-y-8 mt-8">
+            <TabsContent value="advanced" className="space-y-6 sm:space-y-8 mt-6 sm:mt-8">
               {/* Noise Level */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -284,16 +282,16 @@ const CustomTuner = () => {
           <Button 
             onClick={handlePlay}
             size="lg"
-            className="w-full"
+            className="w-full h-12 sm:h-14 text-sm sm:text-base"
           >
             {isPlaying ? (
               <>
-                <Pause className="w-5 h-5 mr-2" />
+                <Pause className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Stop Session
               </>
             ) : (
               <>
-                <Play className="w-5 h-5 mr-2" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Start Custom Session
               </>
             )}
@@ -301,42 +299,42 @@ const CustomTuner = () => {
         </Card>
 
         {/* Brainwave Reference Guide */}
-        <Card className="p-6">
-          <h3 className="font-semibold mb-4">Brainwave Frequency Reference</h3>
-          <div className="space-y-3 text-sm">
-            <div className="flex items-start gap-3">
-              <span className="font-mono text-purple-600 font-semibold w-20">0.5-4 Hz</span>
+        <Card className="p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Brainwave Frequency Reference</h3>
+          <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+            <div className="flex items-start gap-2 sm:gap-3">
+              <span className="font-mono text-purple-600 font-semibold w-16 sm:w-20 text-[10px] sm:text-xs flex-shrink-0">0.5-4 Hz</span>
               <div>
-                <p className="font-medium">Delta</p>
-                <p className="text-muted-foreground">Deep sleep, healing, regeneration</p>
+                <p className="font-medium text-xs sm:text-sm">Delta</p>
+                <p className="text-muted-foreground text-[10px] sm:text-xs">Deep sleep, healing, regeneration</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="font-mono text-blue-600 font-semibold w-20">4-8 Hz</span>
+            <div className="flex items-start gap-2 sm:gap-3">
+              <span className="font-mono text-blue-600 font-semibold w-16 sm:w-20 text-[10px] sm:text-xs flex-shrink-0">4-8 Hz</span>
               <div>
-                <p className="font-medium">Theta</p>
-                <p className="text-muted-foreground">Meditation, creativity, deep relaxation, REM sleep</p>
+                <p className="font-medium text-xs sm:text-sm">Theta</p>
+                <p className="text-muted-foreground text-[10px] sm:text-xs">Meditation, creativity, deep relaxation</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="font-mono text-emerald-600 font-semibold w-20">8-14 Hz</span>
+            <div className="flex items-start gap-2 sm:gap-3">
+              <span className="font-mono text-emerald-600 font-semibold w-16 sm:w-20 text-[10px] sm:text-xs flex-shrink-0">8-14 Hz</span>
               <div>
-                <p className="font-medium">Alpha</p>
-                <p className="text-muted-foreground">Relaxed focus, learning, light meditation</p>
+                <p className="font-medium text-xs sm:text-sm">Alpha</p>
+                <p className="text-muted-foreground text-[10px] sm:text-xs">Relaxed focus, learning, meditation</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="font-mono text-amber-600 font-semibold w-20">14-30 Hz</span>
+            <div className="flex items-start gap-2 sm:gap-3">
+              <span className="font-mono text-amber-600 font-semibold w-16 sm:w-20 text-[10px] sm:text-xs flex-shrink-0">14-30 Hz</span>
               <div>
-                <p className="font-medium">Beta</p>
-                <p className="text-muted-foreground">Active thinking, focus, alertness, problem-solving</p>
+                <p className="font-medium text-xs sm:text-sm">Beta</p>
+                <p className="text-muted-foreground text-[10px] sm:text-xs">Active thinking, focus, problem-solving</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="font-mono text-rose-600 font-semibold w-20">30-100 Hz</span>
+            <div className="flex items-start gap-2 sm:gap-3">
+              <span className="font-mono text-rose-600 font-semibold w-16 sm:w-20 text-[10px] sm:text-xs flex-shrink-0">30-100 Hz</span>
               <div>
-                <p className="font-medium">Gamma</p>
-                <p className="text-muted-foreground">Peak concentration, cognitive enhancement, insight</p>
+                <p className="font-medium text-xs sm:text-sm">Gamma</p>
+                <p className="text-muted-foreground text-[10px] sm:text-xs">Peak concentration, cognitive enhancement</p>
               </div>
             </div>
           </div>
