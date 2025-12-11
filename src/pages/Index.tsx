@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { IntentCard } from '@/components/IntentCard';
 import { useAuth } from '@/contexts/AuthContext';
 import { MobileToolbar } from '@/components/MobileToolbar';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { 
   Waves, 
   LogOut, 
@@ -17,7 +18,8 @@ import {
   ArrowRight,
   Play,
   Star,
-  CheckCircle2
+  CheckCircle2,
+  History
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -122,8 +124,17 @@ const Index = () => {
               <span className="hidden sm:inline text-xs sm:text-sm">Custom Tuner</span>
               <span className="sm:hidden text-xs">Tuner</span>
             </Button>
+            <ThemeToggle />
             {user ? (
               <>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-8 w-8 sm:h-10 sm:w-10"
+                  onClick={() => navigate('/history')}
+                >
+                  <History className="w-4 h-4 sm:w-5 sm:h-5" />
+                </Button>
                 <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">
                   <User className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>

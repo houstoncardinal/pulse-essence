@@ -184,6 +184,8 @@ export default function Player() {
           <WaveformVisualizer
             isPlaying={isPlaying}
             beatHz={preset.beat_hz_start}
+            baseFreq={preset.base_freq_hz}
+            mode={preset.mode}
           />
         </div>
 
