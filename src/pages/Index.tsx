@@ -4,7 +4,22 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { IntentCard } from '@/components/IntentCard';
 import { useAuth } from '@/contexts/AuthContext';
-import { Waves, LogOut, User, Sliders } from 'lucide-react';
+import { MobileToolbar } from '@/components/MobileToolbar';
+import { 
+  Waves, 
+  LogOut, 
+  User, 
+  Sliders, 
+  Shield, 
+  Cpu, 
+  AudioWaveform,
+  Sparkles,
+  ArrowRight,
+  Play,
+  Star,
+  CheckCircle2
+} from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface IntentGroup {
   intent: string;
@@ -75,8 +90,15 @@ const Index = () => {
     }
   };
 
+  const features = [
+    { icon: Cpu, title: 'Phase-Locked DSP', description: 'Real-time digital signal processing with zero drift' },
+    { icon: AudioWaveform, title: 'Multi-Mode Audio', description: 'Binaural, monaural, and isochronic tones' },
+    { icon: Shield, title: 'Safe Frequencies', description: 'Scientifically validated frequency ranges' },
+    { icon: Sparkles, title: 'Custom Tuning', description: '432/440/528 Hz reference standards' },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20 md:pb-0">
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3">
@@ -120,56 +142,108 @@ const Index = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero Section */}
-        <section className="py-12 sm:py-20 md:py-32 text-center">
-          <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6">
+        <section className="py-12 sm:py-20 md:py-32 text-center relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               <span className="text-[10px] sm:text-xs font-medium text-primary">Scientifically Validated Technology</span>
+              <Star className="w-3 h-3 text-primary fill-primary" />
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight px-2">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight px-2">
               <span className="text-foreground">Precision Neural</span>
               <br />
               <span className="bg-gradient-primary bg-clip-text text-transparent">Audio Engineering</span>
             </h1>
 
-            <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-4">
+            <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
               Phase-accurate binaural beat synthesis with zero-drift precision.<br className="hidden sm:block" />
               Professional-grade brainwave entrainment for focus, relaxation, and peak performance.
             </p>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto mb-8 sm:mb-12 px-4">
-              <div className="text-center">
-                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">±0.001 Hz</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Frequency Accuracy</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">0 ms</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Phase Drift</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">48 kHz</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Sample Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1 sm:mb-2">440/432/528</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Hz Tuning</div>
-              </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-16 px-4">
+              <Button 
+                onClick={() => navigate('/custom-tuner')}
+                className="w-full sm:w-auto bg-gradient-primary hover:opacity-90 text-white shadow-hero gap-2 h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base"
+              >
+                <Play className="w-4 h-4" />
+                Start Session
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full sm:w-auto gap-2 h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base group"
+              >
+                Browse Presets
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
 
-            {/* Feature Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm px-4">
-              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Phase-Locked</span>
-              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Web Audio API</span>
-              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Real-Time</span>
-              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">Studio Quality</span>
+            {/* Features Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-10 sm:mb-16">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
+                  className="p-4 sm:p-5 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-float transition-all group"
+                >
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-secondary w-fit mb-2 sm:mb-3 group-hover:bg-primary/10 transition-colors">
+                    <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-xs sm:text-sm text-foreground mb-1">{feature.title}</h3>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground leading-relaxed">{feature.description}</p>
+                </motion.div>
+              ))}
             </div>
-          </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto mb-8 sm:mb-12 px-4">
+              {[
+                { value: '±0.001 Hz', label: 'Frequency Accuracy' },
+                { value: '0 ms', label: 'Phase Drift' },
+                { value: '48 kHz', label: 'Sample Rate' },
+                { value: '3 Refs', label: '432/440/528 Hz' },
+              ].map((stat, index) => (
+                <motion.div 
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="text-center p-3 sm:p-4 rounded-xl bg-secondary/50 border border-border"
+                >
+                  <div className="text-lg sm:text-2xl md:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-1">{stat.value}</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm px-4">
+              {['Phase-Locked', 'Web Audio API', 'Real-Time DSP', 'Studio Quality'].map((pill) => (
+                <span key={pill} className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-secondary text-secondary-foreground border border-border">
+                  <CheckCircle2 className="w-3 h-3 text-primary" />
+                  {pill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         </section>
 
         {/* Sessions Section */}
-        <section className="py-8 sm:py-12 md:py-16">
+        <section id="sessions" className="py-8 sm:py-12 md:py-16 scroll-mt-20">
           <div className="text-center mb-8 sm:mb-12 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
               Curated Sessions
@@ -346,6 +420,9 @@ const Index = () => {
           <p className="text-[10px] sm:text-xs text-muted-foreground">Phase-locked synthesis • Zero drift • Sample-accurate</p>
         </div>
       </footer>
+
+      {/* Mobile Toolbar */}
+      <MobileToolbar />
     </div>
   );
 };
