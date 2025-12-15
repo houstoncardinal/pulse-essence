@@ -32,6 +32,13 @@ export function WaveformVisualizer({
 
     ctx.clearRect(0, 0, width, height);
 
+    // Define colors that work with Canvas API (actual color values, not CSS variables)
+    const primaryColor = { h: 160, s: 60, l: 45 }; // Soft green
+    const accentColor = { h: 220, s: 70, l: 60 }; // Baby blue
+    
+    const hsla = (color: typeof primaryColor, alpha: number) => 
+      `hsla(${color.h}, ${color.s}%, ${color.l}%, ${alpha})`;
+
     if (!isPlaying) {
       // Draw idle state - subtle pulsing circle
       const idleRadius = Math.min(width, height) * 0.25;
@@ -39,8 +46,8 @@ export function WaveformVisualizer({
         centerX, centerY, 0,
         centerX, centerY, idleRadius
       );
-      gradient.addColorStop(0, 'hsla(var(--primary), 0.15)');
-      gradient.addColorStop(0.7, 'hsla(var(--primary), 0.05)');
+      gradient.addColorStop(0, hsla(primaryColor, 0.15));
+      gradient.addColorStop(0.7, hsla(primaryColor, 0.05));
       gradient.addColorStop(1, 'transparent');
 
       ctx.beginPath();
@@ -50,7 +57,7 @@ export function WaveformVisualizer({
 
       ctx.beginPath();
       ctx.arc(centerX, centerY, idleRadius * 0.8, 0, Math.PI * 2);
-      ctx.strokeStyle = 'hsla(var(--primary), 0.2)';
+      ctx.strokeStyle = hsla(primaryColor, 0.2);
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -70,7 +77,7 @@ export function WaveformVisualizer({
       
       ctx.beginPath();
       ctx.arc(centerX, centerY, ringRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = `hsla(var(--primary), ${alpha})`;
+      ctx.strokeStyle = hsla(primaryColor, alpha);
       ctx.lineWidth = 2;
       ctx.stroke();
     }
@@ -80,9 +87,9 @@ export function WaveformVisualizer({
       centerX, centerY, baseRadius * 0.3 * breatheScale,
       centerX, centerY, baseRadius * 1.3 * breatheScale
     );
-    mainGradient.addColorStop(0, 'hsla(var(--primary), 0.25)');
-    mainGradient.addColorStop(0.4, 'hsla(var(--primary), 0.12)');
-    mainGradient.addColorStop(0.7, 'hsla(var(--accent), 0.06)');
+    mainGradient.addColorStop(0, hsla(primaryColor, 0.25));
+    mainGradient.addColorStop(0.4, hsla(primaryColor, 0.12));
+    mainGradient.addColorStop(0.7, hsla(accentColor, 0.06));
     mainGradient.addColorStop(1, 'transparent');
 
     ctx.beginPath();
@@ -115,8 +122,8 @@ export function WaveformVisualizer({
       ctx.closePath();
       const alpha = 0.15 - i * 0.012;
       ctx.strokeStyle = i % 2 === 0 
-        ? `hsla(var(--primary), ${alpha})` 
-        : `hsla(var(--accent), ${alpha})`;
+        ? hsla(primaryColor, alpha) 
+        : hsla(accentColor, alpha);
       ctx.lineWidth = 1.5;
       ctx.stroke();
     }
@@ -127,9 +134,9 @@ export function WaveformVisualizer({
       centerX, centerY, 0,
       centerX, centerY, coreRadius
     );
-    coreGradient.addColorStop(0, 'hsla(var(--primary), 0.6)');
-    coreGradient.addColorStop(0.5, 'hsla(var(--primary), 0.3)');
-    coreGradient.addColorStop(1, 'hsla(var(--primary), 0)');
+    coreGradient.addColorStop(0, hsla(primaryColor, 0.6));
+    coreGradient.addColorStop(0.5, hsla(primaryColor, 0.3));
+    coreGradient.addColorStop(1, hsla(primaryColor, 0));
 
     ctx.beginPath();
     ctx.arc(centerX, centerY, coreRadius, 0, Math.PI * 2);
@@ -147,7 +154,7 @@ export function WaveformVisualizer({
       
       ctx.beginPath();
       ctx.arc(dotX, dotY, dotSize, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(var(--accent), ${0.5 + Math.sin(time + i) * 0.3})`;
+      ctx.fillStyle = hsla(accentColor, 0.5 + Math.sin(time + i) * 0.3);
       ctx.fill();
     }
 
@@ -171,7 +178,7 @@ export function WaveformVisualizer({
           centerX + Math.cos(barAngle) * (startR + barLength),
           centerY + Math.sin(barAngle) * (startR + barLength)
         );
-        ctx.strokeStyle = `hsla(var(--primary), ${0.4 * barIntensity})`;
+        ctx.strokeStyle = hsla(primaryColor, 0.4 * barIntensity);
         ctx.lineWidth = barWidth;
         ctx.lineCap = 'round';
         ctx.stroke();
