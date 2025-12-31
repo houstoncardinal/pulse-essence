@@ -1,0 +1,21 @@
+{
+  "name": "Cardinal Binaural - Manifestation Through Natural Frequencies",
+  "short_name": "Cardinal Binaural",
+  "description": "Align your frequency with 432 Hz & 528 Hz for manifestation, healing, and transformation",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#8B5CF6",
+  "background_color": "#0F172A",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "categories": ["health", "meditation", "wellness", "lifestyle"],
+  "lang": "en-US"
+}

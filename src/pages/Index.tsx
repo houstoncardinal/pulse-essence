@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { IntentCard } from '@/components/IntentCard';
+import { StructuredData } from '@/components/StructuredData';
 import { useAuth } from '@/contexts/AuthContext';
 import { useSubscription } from '@/contexts/SubscriptionContext';
 import { MobileToolbar } from '@/components/MobileToolbar';
@@ -127,8 +128,10 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pb-20 md:pb-0">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <>
+      <StructuredData />
+      <div className="min-h-screen bg-background pb-20 md:pb-0">
+        <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-primary shadow-soft">
@@ -471,7 +474,8 @@ const Index = () => {
 
       {/* Mobile Toolbar */}
       <MobileToolbar />
-    </div>
+      </div>
+    </>
   );
 };
 
