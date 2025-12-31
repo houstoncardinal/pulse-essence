@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { IntentCard } from '@/components/IntentCard';
 import { useAuth } from '@/contexts/AuthContext';
+import { useSubscription } from '@/contexts/SubscriptionContext';
 import { MobileToolbar } from '@/components/MobileToolbar';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { useToast } from '@/hooks/use-toast';
 import { 
   Waves, 
   LogOut, 
@@ -19,7 +21,8 @@ import {
   Play,
   Star,
   CheckCircle2,
-  History
+  History,
+  Crown
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -32,9 +35,33 @@ interface IntentGroup {
 
 const Index = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { user, signOut } = useAuth();
+  const { isPro, isTrial, checkSubscription } = useSubscription();
+  const { toast } = useToast();
   const [intents, setIntents] = useState<IntentGroup[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Handle checkout success/cancel
+  useEffect(() => {
+    const checkoutStatus = searchParams.get('checkout');
+    if (checkoutStatus === 'success') {
+      toast({
+        title: 'Welcome to Pro!',
+        description: 'Your 7-day free trial has started. Enjoy all premium features!',
+      });
+      checkSubscription();
+      // Clean up URL
+      window.history.replaceState({}, '', '/');
+    } else if (checkoutStatus === 'canceled') {
+      toast({
+        title: 'Checkout Canceled',
+        description: 'No worries! You can upgrade anytime.',
+        variant: 'default',
+      });
+      window.history.replaceState({}, '', '/');
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     fetchIntents();
@@ -114,6 +141,16 @@ const Index = () => {
           </div>
 
           <div className="flex items-center gap-1 sm:gap-2">
+            {!isPro && (
+              <Button 
+                onClick={() => navigate('/pricing')}
+                size="sm"
+                className="gap-1 sm:gap-2 h-8 sm:h-10 bg-gradient-primary hover:opacity-90"
+              >
+                <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline text-xs sm:text-sm">Upgrade</span>
+              </Button>
+            )}
             <Button 
               variant="outline" 
               size="sm"
