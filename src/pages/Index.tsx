@@ -123,7 +123,7 @@ const Index = () => {
     { icon: Cpu, title: 'Phase-Locked DSP', description: 'Real-time digital signal processing with zero drift' },
     { icon: AudioWaveform, title: 'Multi-Mode Audio', description: 'Binaural, monaural, and isochronic tones' },
     { icon: Shield, title: 'Safe Frequencies', description: 'Scientifically validated frequency ranges' },
-    { icon: Sparkles, title: 'Custom Tuning', description: '432/440/528 Hz reference standards' },
+    { icon: Sparkles, title: 'Manifestation Tuning', description: '432/528 Hz natural frequencies' },
   ];
 
   return (
@@ -135,8 +135,8 @@ const Index = () => {
               <Waves className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-base sm:text-xl font-semibold tracking-tight">AuralForge</h1>
-              <p className="text-xs text-muted-foreground hidden sm:block">Neural Entrainment Platform</p>
+              <h1 className="text-base sm:text-xl font-semibold tracking-tight">Cardinal Binaural</h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">Manifestation & Frequency Alignment</p>
             </div>
           </div>
 
@@ -204,19 +204,19 @@ const Index = () => {
           >
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-[10px] sm:text-xs font-medium text-primary">Scientifically Validated Technology</span>
+              <span className="text-[10px] sm:text-xs font-medium text-primary">Natural Frequency Alignment</span>
               <Star className="w-3 h-3 text-primary fill-primary" />
             </div>
 
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight px-2">
-              <span className="text-foreground">Precision Neural</span>
+              <span className="text-foreground">Align Your Frequency</span>
               <br />
-              <span className="bg-gradient-primary bg-clip-text text-transparent">Audio Engineering</span>
+              <span className="bg-gradient-primary bg-clip-text text-transparent">Manifest Your Reality</span>
             </h1>
 
             <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
-              Phase-accurate binaural beat synthesis with zero-drift precision.<br className="hidden sm:block" />
-              Professional-grade brainwave entrainment for focus, relaxation, and peak performance.
+              Attune to natural 432 Hz & 528 Hz frequencies for manifestation, healing, and transformation.<br className="hidden sm:block" />
+              Align your energy with universal harmony and unlock your full potential.
             </p>
 
             {/* CTA Buttons */}
@@ -263,7 +263,7 @@ const Index = () => {
                 { value: '±0.001 Hz', label: 'Frequency Accuracy' },
                 { value: '0 ms', label: 'Phase Drift' },
                 { value: '48 kHz', label: 'Sample Rate' },
-                { value: '3 Refs', label: '432/440/528 Hz' },
+                { value: '2 Refs', label: '432/528 Hz' },
               ].map((stat, index) => (
                 <motion.div 
                   key={stat.label}
@@ -462,9 +462,9 @@ const Index = () => {
             <div className="p-1.5 rounded-lg bg-gradient-primary">
               <Waves className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <span className="text-base sm:text-lg font-semibold">AuralForge</span>
+            <span className="text-base sm:text-lg font-semibold">Cardinal Binaural</span>
           </div>
-          <p className="text-xs sm:text-sm text-muted-foreground mb-2">© 2025 AuralForge. All rights reserved.</p>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-2">© 2025 Cardinal Binaural. All rights reserved.</p>
           <p className="text-[10px] sm:text-xs text-muted-foreground">Phase-locked synthesis • Zero drift • Sample-accurate</p>
         </div>
       </footer>

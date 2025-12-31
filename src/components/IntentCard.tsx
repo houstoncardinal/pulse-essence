@@ -23,7 +23,6 @@ interface IntentCardProps {
 }
 
 const tuningColors: Record<number, string> = {
-  440: 'text-primary',
   432: 'text-accent',
   528: 'text-emerald-500',
 };

@@ -17,7 +17,7 @@ interface SubscriptionContextType extends SubscriptionStatus {
 
 const SubscriptionContext = createContext<SubscriptionContextType | undefined>(undefined);
 
-// AuralForge Pro product ID
+// Cardinal Binaural Pro product ID
 const PRO_PRODUCT_ID = "prod_ThgUgtdm3wTY5I";
 
 // Free tier presets (3 basic ones)

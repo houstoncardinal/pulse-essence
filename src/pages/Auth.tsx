@@ -62,9 +62,9 @@ export default function Auth() {
           <div className="p-4 rounded-2xl bg-gradient-primary mb-4">
             <Waves className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground">AuralForge</h1>
+          <h1 className="text-3xl font-bold text-foreground">Cardinal Binaural</h1>
           <p className="text-muted-foreground mt-2 text-center">
-            Scientifically precise. Effortlessly calm.
+            Align your frequency. Manifest your reality.
           </p>
         </div>
 

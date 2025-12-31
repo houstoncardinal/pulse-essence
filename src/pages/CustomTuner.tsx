@@ -16,7 +16,7 @@ const CustomTuner = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [baseFreq, setBaseFreq] = useState(220);
   const [beatFreq, setBeatFreq] = useState(10);
-  const [tuningRef, setTuningRef] = useState(440);
+  const [tuningRef, setTuningRef] = useState(432);
   const [mode, setMode] = useState<'binaural' | 'monaural' | 'isochronic'>('binaural');
   const [noiseLevel, setNoiseLevel] = useState(0);
   const [isochronicDepth, setIsochronicDepth] = useState(0.5);
@@ -194,23 +194,15 @@ const CustomTuner = () => {
 
               {/* Tuning Reference */}
               <div className="space-y-3">
-                <Label className="text-sm font-medium">Tuning Reference</Label>
-                <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                  <Button
-                    variant={tuningRef === 440 ? "default" : "outline"}
-                    onClick={() => setTuningRef(440)}
-                    className="w-full flex flex-col h-auto py-2 sm:py-3"
-                  >
-                    <span className="text-xs sm:text-sm font-semibold">440 Hz</span>
-                    <span className="text-[10px] sm:text-xs opacity-70">Standard</span>
-                  </Button>
+                <Label className="text-sm font-medium">Manifestation Frequency</Label>
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   <Button
                     variant={tuningRef === 432 ? "default" : "outline"}
                     onClick={() => setTuningRef(432)}
                     className="w-full flex flex-col h-auto py-2 sm:py-3"
                   >
                     <span className="text-xs sm:text-sm font-semibold">432 Hz</span>
-                    <span className="text-[10px] sm:text-xs opacity-70">Universal</span>
+                    <span className="text-[10px] sm:text-xs opacity-70">Universal Harmony</span>
                   </Button>
                   <Button
                     variant={tuningRef === 528 ? "default" : "outline"}
@@ -218,7 +210,7 @@ const CustomTuner = () => {
                     className="w-full flex flex-col h-auto py-2 sm:py-3"
                   >
                     <span className="text-xs sm:text-sm font-semibold">528 Hz</span>
-                    <span className="text-[10px] sm:text-xs opacity-70">Solfeggio</span>
+                    <span className="text-[10px] sm:text-xs opacity-70">DNA Transformation</span>
                   </Button>
                 </div>
               </div>

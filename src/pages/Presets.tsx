@@ -24,7 +24,7 @@ export default function Presets() {
   const { toast } = useToast();
   const [presets, setPresets] = useState<Preset[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedTuning, setSelectedTuning] = useState<number>(440);
+  const [selectedTuning, setSelectedTuning] = useState<number>(432);
 
   useEffect(() => {
     fetchPresets();

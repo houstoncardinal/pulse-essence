@@ -7,9 +7,8 @@ interface TuningSelectorProps {
 }
 
 const tunings = [
-  { value: 440, label: '440 Hz', description: 'Standard Concert Pitch' },
-  { value: 432, label: '432 Hz', description: 'Universal Harmony' },
-  { value: 528, label: '528 Hz', description: 'Solfeggio Healing' },
+  { value: 432, label: '432 Hz', description: 'Universal Harmony & Manifestation' },
+  { value: 528, label: '528 Hz', description: 'DNA Repair & Transformation' },
 ];
 
 export function TuningSelector({ selected, onChange }: TuningSelectorProps) {

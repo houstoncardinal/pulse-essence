@@ -106,7 +106,7 @@ export const MobileToolbar = () => {
         {
           icon: Music,
           label: 'Frequency Ref',
-          description: '432/440/528 Hz',
+          description: '432/528 Hz',
           action: () => {},
           color: 'text-primary'
         }

@@ -139,7 +139,7 @@ export default function Pricing() {
             Unlock Your Full Potential
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Experience the complete AuralForge experience with all premium presets, 
+            Experience the complete Cardinal Binaural experience with all premium presets,
             custom frequency creation, and advanced analytics.
           </p>
         </div>

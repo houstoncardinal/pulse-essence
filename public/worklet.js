@@ -6,7 +6,7 @@ class BinauralEngineWorklet extends AudioWorkletProcessor {
       { name: 'beatHz', defaultValue: 10, minValue: 0.5, maxValue: 80 },
       { name: 'amp', defaultValue: 0.2, minValue: 0, maxValue: 1 },
       { name: 'mode', defaultValue: 0, minValue: 0, maxValue: 2 }, // 0=binaural, 1=monaural, 2=isochronic
-      { name: 'tuningRef', defaultValue: 440, minValue: 400, maxValue: 600 },
+      { name: 'tuningRef', defaultValue: 432, minValue: 400, maxValue: 600 },
       { name: 'noiseLevel', defaultValue: 0.0, minValue: 0, maxValue: 1 },
       { name: 'isochronicDepth', defaultValue: 0.5, minValue: 0, maxValue: 1 }
     ];
@@ -48,8 +48,8 @@ class BinauralEngineWorklet extends AudioWorkletProcessor {
       const noiseLevel = this.getParamValue(parameters.noiseLevel, i);
       const tuningRef = this.getParamValue(parameters.tuningRef, i);
 
-      // Apply tuning reference scaling (e.g., 432Hz vs 440Hz)
-      const tuningScale = tuningRef / 440.0;
+      // Apply tuning reference scaling (432Hz is natural base, 528Hz for transformation)
+      const tuningScale = tuningRef / 432.0;
       const fBaseScaled = fBase * tuningScale;
 
       const fL = fBaseScaled;
