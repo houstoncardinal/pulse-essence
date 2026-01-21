@@ -9,6 +9,7 @@ import { useSubscription } from '@/contexts/SubscriptionContext';
 import { MobileToolbar } from '@/components/MobileToolbar';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useToast } from '@/hooks/use-toast';
+import SDFDreamscape from '@/components/ui/sdf-dreamscape';
 import { 
   Waves, 
   LogOut, 
@@ -194,10 +195,17 @@ const Index = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero Section */}
         <section className="py-12 sm:py-20 md:py-32 text-center relative overflow-hidden">
-          {/* Background Elements */}
+          {/* WebGL SDF Dreamscape Background */}
           <div className="absolute inset-0 -z-10">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+            <SDFDreamscape 
+              hue={158} 
+              speed={0.25} 
+              intensity={5} 
+              complexity={3}
+              className="opacity-40 dark:opacity-50"
+            />
+            {/* Overlay gradient for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/80" />
           </div>
 
           <motion.div 
