@@ -196,16 +196,18 @@ const Index = () => {
         {/* Hero Section */}
         <section className="py-12 sm:py-20 md:py-32 text-center relative overflow-hidden">
           {/* WebGL SDF Dreamscape Background */}
-          <div className="absolute inset-0 -z-10">
+          <div 
+            className="absolute inset-0 -z-10"
+            style={{ width: '100%', height: '100%', minHeight: '700px' }}
+          >
             <SDFDreamscape 
               hue={158} 
-              speed={0.25} 
-              intensity={5} 
-              complexity={3}
-              className="opacity-40 dark:opacity-50"
+              speed={0.35} 
+              intensity={6} 
+              complexity={2.5}
             />
-            {/* Overlay gradient for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/80" />
+            {/* Subtle overlay gradient for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60 pointer-events-none" />
           </div>
 
           <motion.div 

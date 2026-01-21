@@ -58,13 +58,23 @@ const useShaderAnimation = (
   const throttledMouseMove = useThrottledCallback((e: MouseEvent) => {
     if (!canvasRef.current) return;
     const rect = canvasRef.current.getBoundingClientRect();
-    mousePos.current.x = (e.clientX - rect.left) / rect.width;
-    mousePos.current.y = 1.0 - (e.clientY - rect.top) / rect.height;
+    if (rect.width > 0 && rect.height > 0) {
+      mousePos.current.x = (e.clientX - rect.left) / rect.width;
+      mousePos.current.y = 1.0 - (e.clientY - rect.top) / rect.height;
+    }
   }, 16);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    // Force canvas size from parent on mount
+    const parent = canvas.parentElement;
+    if (parent) {
+      const rect = parent.getBoundingClientRect();
+      canvas.width = rect.width || window.innerWidth;
+      canvas.height = rect.height || 700;
+    }
 
     const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
     if (!gl) {
@@ -272,8 +282,14 @@ const ShaderCanvas = React.memo(({ hue, speed, intensity, complexity }: ShaderCa
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ display: 'block' }}
+      style={{ 
+        display: 'block',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+      }}
     />
   );
 });
@@ -312,7 +328,17 @@ const SDFDreamscape: React.FC<SDFDreamscapeProps> = ({
   );
 
   return (
-    <div className={`relative w-full h-full overflow-hidden ${className}`}>
+    <div 
+      className={`overflow-hidden ${className}`}
+      style={{ 
+        position: 'relative', 
+        width: '100%', 
+        height: '100%', 
+        minHeight: '100%',
+        // Fallback gradient when WebGL canvas hasn't rendered yet
+        background: 'radial-gradient(ellipse at center, hsl(189 94% 43% / 0.15), hsl(158 64% 52% / 0.1), transparent 70%)'
+      }}
+    >
       <ShaderCanvas hue={hue} speed={speed} intensity={intensity} complexity={complexity} />
       
       {showControls && (
