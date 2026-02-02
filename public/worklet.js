@@ -3,7 +3,7 @@ class BinauralEngineWorklet extends AudioWorkletProcessor {
   static get parameterDescriptors() {
     return [
       { name: 'baseFreq', defaultValue: 220, minValue: 20, maxValue: 2000 },
-      { name: 'beatHz', defaultValue: 10, minValue: 0.5, maxValue: 80 },
+      { name: 'beatHz', defaultValue: 10, minValue: 0.1, maxValue: 120 },
       { name: 'amp', defaultValue: 0.2, minValue: 0, maxValue: 1 },
       { name: 'mode', defaultValue: 0, minValue: 0, maxValue: 2 }, // 0=binaural, 1=monaural, 2=isochronic
       { name: 'tuningRef', defaultValue: 432, minValue: 400, maxValue: 600 },
