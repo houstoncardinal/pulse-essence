@@ -10,6 +10,7 @@ import { MobileToolbar } from '@/components/MobileToolbar';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useToast } from '@/hooks/use-toast';
 import SDFDreamscape from '@/components/ui/sdf-dreamscape';
+import { FrequencyReferenceChart } from '@/components/FrequencyReferenceChart';
 import { 
   Waves, 
   LogOut, 
@@ -393,69 +394,42 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Brainwave States */}
+            {/* Why Headphones */}
             <div className="space-y-4 sm:space-y-6">
               <div className="p-4 sm:p-6 rounded-xl bg-gradient-primary text-white shadow-elevated">
-                <h3 className="text-base sm:text-xl font-semibold mb-3 sm:mb-4">Brainwave States</h3>
-                <div className="space-y-3 sm:space-y-4">
-                  <div>
-                    <div className="flex items-center justify-between mb-1 gap-2">
-                      <span className="font-medium text-xs sm:text-sm">Delta (0.5-4 Hz)</span>
-                      <span className="text-[10px] sm:text-sm opacity-90">Deep Sleep</span>
-                    </div>
-                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-white rounded-full w-[15%]"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between mb-1 gap-2">
-                      <span className="font-medium text-xs sm:text-sm">Theta (4-8 Hz)</span>
-                      <span className="text-[10px] sm:text-sm opacity-90">Meditation</span>
-                    </div>
-                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-white rounded-full w-[30%]"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between mb-1 gap-2">
-                      <span className="font-medium text-xs sm:text-sm">Alpha (8-12 Hz)</span>
-                      <span className="text-[10px] sm:text-sm opacity-90">Relaxed Focus</span>
-                    </div>
-                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-white rounded-full w-[50%]"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between mb-1 gap-2">
-                      <span className="font-medium text-xs sm:text-sm">Beta (12-30 Hz)</span>
-                      <span className="text-[10px] sm:text-sm opacity-90">Active</span>
-                    </div>
-                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-white rounded-full w-[70%]"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between mb-1 gap-2">
-                      <span className="font-medium text-xs sm:text-sm">Gamma (30-100 Hz)</span>
-                      <span className="text-[10px] sm:text-sm opacity-90">Peak</span>
-                    </div>
-                    <div className="h-1.5 sm:h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-white rounded-full w-[90%]"></div>
-                    </div>
-                  </div>
+                <h3 className="text-base sm:text-xl font-semibold mb-3 sm:mb-4">Why Headphones Are Essential</h3>
+                <p className="text-sm sm:text-base opacity-90 leading-relaxed mb-4">
+                  Binaural beats require stereo separation to work effectively. Each ear must receive its designated frequency independently. Speakers allow frequencies to mix in the air before reaching your ears, eliminating the binaural effect.
+                </p>
+                <div className="p-3 sm:p-4 rounded-lg bg-white/10">
+                  <p className="text-xs sm:text-sm opacity-90">
+                    <strong>Pro tip:</strong> Use quality over-ear headphones in a quiet environment for best results.
+                  </p>
                 </div>
               </div>
 
               <div className="p-4 sm:p-6 rounded-xl bg-card border border-border shadow-soft">
-                <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3">Why Headphones Are Essential</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 sm:mb-4">
-                  Binaural beats require stereo separation to work effectively. Each ear must receive its designated frequency independently. Speakers allow frequencies to mix in the air before reaching your ears, eliminating the binaural effect.
+                <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3">The Tuning Difference</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4">
+                  Our platform supports multiple tuning references, each with unique properties:
                 </p>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  For best results, use quality over-ear headphones in a quiet environment.
-                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 rounded-lg bg-secondary/50 border border-border">
+                    <div className="text-lg sm:text-xl font-bold text-primary mb-1">432 Hz</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground">Natural harmony, aligned with cosmic ratios and nature's frequencies</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-secondary/50 border border-border">
+                    <div className="text-lg sm:text-xl font-bold text-accent mb-1">528 Hz</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground">The "Miracle Tone" associated with DNA repair and transformation</div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Comprehensive Frequency Reference Chart */}
+          <div className="mt-12 sm:mt-16 md:mt-20">
+            <FrequencyReferenceChart />
           </div>
 
           {/* Safety Notice */}
