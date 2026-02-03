@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import cardinalLogo from '@/assets/cardinal-logo.png';
 import { 
   ArrowLeft, 
   Clock, 
@@ -177,17 +178,19 @@ export default function SessionHistory() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
               <ArrowLeft className="w-5 h-5" />
             </Button>
             <div className="flex items-center gap-2">
-              <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-primary shadow-soft">
-                <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <h1 className="text-base sm:text-xl font-semibold tracking-tight">Session History</h1>
+              <img 
+                src={cardinalLogo} 
+                alt="Cardinal Binaural" 
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg shadow-soft"
+              />
+              <h1 className="text-sm sm:text-lg font-bold tracking-tight">Session History</h1>
             </div>
           </div>
           <ThemeToggle />

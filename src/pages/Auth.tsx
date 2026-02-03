@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
-import { Waves } from 'lucide-react';
+import cardinalLogo from '@/assets/cardinal-logo.png';
 
 export default function Auth() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -56,14 +56,16 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-calm p-4">
-      <Card className="w-full max-w-md p-8 bg-glass-bg backdrop-blur-xl border-glass-border shadow-card">
-        <div className="flex flex-col items-center mb-8">
-          <div className="p-4 rounded-2xl bg-gradient-primary mb-4">
-            <Waves className="w-8 h-8 text-white" />
-          </div>
-          <h1 className="text-3xl font-bold text-foreground">Cardinal Binaural</h1>
-          <p className="text-muted-foreground mt-2 text-center">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary/30 p-4">
+      <Card className="w-full max-w-md p-6 sm:p-8 bg-card/80 backdrop-blur-xl border-border shadow-elevated">
+        <div className="flex flex-col items-center mb-6 sm:mb-8">
+          <img 
+            src={cardinalLogo} 
+            alt="Cardinal Binaural" 
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-float mb-4"
+          />
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Cardinal Binaural</h1>
+          <p className="text-muted-foreground mt-2 text-center text-sm sm:text-base">
             Align your frequency. Manifest your reality.
           </p>
         </div>

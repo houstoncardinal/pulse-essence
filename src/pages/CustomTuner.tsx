@@ -7,7 +7,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getAudioEngine } from '@/lib/audioEngine';
-import { Waves, Play, Pause, ArrowLeft, Info } from 'lucide-react';
+import cardinalLogo from '@/assets/cardinal-logo.png';
+import { Play, Pause, ArrowLeft, Info } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const CustomTuner = () => {
@@ -98,17 +99,19 @@ const CustomTuner = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-4">
+      <header className="border-b border-border bg-card/50 backdrop-blur-lg">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-4">
           <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="h-8 w-8 sm:h-10 sm:w-10">
             <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-primary">
-              <Waves className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            </div>
+            <img 
+              src={cardinalLogo} 
+              alt="Cardinal Binaural" 
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg shadow-soft"
+            />
             <div>
-              <h1 className="text-base sm:text-xl font-semibold">Custom Frequency Tuner</h1>
+              <h1 className="text-sm sm:text-lg font-bold">Custom Frequency Tuner</h1>
               <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">Precision neural entrainment</p>
             </div>
           </div>
