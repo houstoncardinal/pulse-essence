@@ -1,12 +1,13 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { useSubscription, FREE_INTENTS } from '@/contexts/SubscriptionContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { 
+import { trackPurchaseConversion } from '@/lib/gtag';
+import {
   Waves, 
   ArrowLeft, 
   Check, 
@@ -24,10 +25,30 @@ import { motion } from 'framer-motion';
 
 export default function Pricing() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { user, session } = useAuth();
   const { subscribed, isTrial, isPro, subscriptionEnd } = useSubscription();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+
+  // Track purchase conversion when returning from successful Stripe checkout
+  useEffect(() => {
+    const success = searchParams.get('success');
+    const sessionId = searchParams.get('session_id');
+    
+    if (success === 'true') {
+      // Fire Google Ads conversion event
+      trackPurchaseConversion(sessionId || undefined, 9.99, 'USD');
+      
+      toast({
+        title: 'Welcome to Pro!',
+        description: 'Your subscription is now active. Enjoy all premium features!',
+      });
+      
+      // Clean up URL params
+      navigate('/pricing', { replace: true });
+    }
+  }, [searchParams, navigate, toast]);
 
   const handleSubscribe = async () => {
     if (!user) {
