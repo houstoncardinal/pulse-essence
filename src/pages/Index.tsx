@@ -11,8 +11,9 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { useToast } from '@/hooks/use-toast';
 import SDFDreamscape from '@/components/ui/sdf-dreamscape';
 import { FrequencyReferenceChart } from '@/components/FrequencyReferenceChart';
+import cardinalLogo from '@/assets/cardinal-logo.png';
 import { 
-  Waves, 
+  Waves,
   LogOut, 
   User, 
   Sliders, 
@@ -133,17 +134,31 @@ const Index = () => {
     <>
       <StructuredData />
       <div className="min-h-screen bg-background pb-20 md:pb-0">
-        <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-primary shadow-soft">
-              <Waves className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+        <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
+          <motion.div 
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group"
+            onClick={() => navigate('/')}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="relative">
+              <img 
+                src={cardinalLogo} 
+                alt="Cardinal Binaural" 
+                className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl shadow-soft group-hover:shadow-float transition-shadow"
+              />
+              <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-primary border-2 border-background animate-pulse" />
             </div>
             <div>
-              <h1 className="text-base sm:text-xl font-semibold tracking-tight">Cardinal Binaural</h1>
-              <p className="text-xs text-muted-foreground hidden sm:block">Manifestation & Frequency Alignment</p>
+              <h1 className="text-sm sm:text-lg font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+                Cardinal Binaural
+              </h1>
+              <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">
+                Manifestation & Frequency Alignment
+              </p>
             </div>
-          </div>
+          </motion.div>
 
           <div className="flex items-center gap-1 sm:gap-2">
             {!isPro && (
@@ -448,9 +463,11 @@ const Index = () => {
           <div className="flex flex-col items-center text-center">
             {/* Logo & Brand */}
             <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-primary shadow-soft">
-                <Waves className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
+              <img 
+                src={cardinalLogo} 
+                alt="Cardinal Binaural" 
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-soft"
+              />
               <div className="text-left">
                 <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground">Cardinal Binaural</span>
                 <p className="text-[10px] sm:text-xs text-muted-foreground">Manifestation & Frequency Alignment</p>

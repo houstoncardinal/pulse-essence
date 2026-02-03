@@ -7,8 +7,8 @@ import { useSubscription, FREE_INTENTS } from '@/contexts/SubscriptionContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { trackPurchaseConversion } from '@/lib/gtag';
+import cardinalLogo from '@/assets/cardinal-logo.png';
 import {
-  Waves, 
   ArrowLeft, 
   Check, 
   X, 
@@ -127,17 +127,19 @@ export default function Pricing() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-4">
+      <header className="border-b border-border bg-card/50 backdrop-blur-lg">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-4">
           <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="h-8 w-8 sm:h-10 sm:w-10">
             <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-primary">
-              <Waves className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            </div>
+            <img 
+              src={cardinalLogo} 
+              alt="Cardinal Binaural" 
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg shadow-soft"
+            />
             <div>
-              <h1 className="text-base sm:text-xl font-semibold">Pricing</h1>
+              <h1 className="text-sm sm:text-lg font-bold">Pricing</h1>
               <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">Choose your plan</p>
             </div>
           </div>

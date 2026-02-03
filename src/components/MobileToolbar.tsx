@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import cardinalLogo from '@/assets/cardinal-logo.png';
 import { 
   Home, 
   Sliders, 
@@ -9,7 +10,6 @@ import {
   Heart,
   Settings,
   ChevronUp,
-  Waves,
   Brain,
   Moon,
   Sun,
@@ -180,9 +180,11 @@ export const MobileToolbar = () => {
               <div className="sticky top-0 bg-background/95 backdrop-blur-sm border-b border-border p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-gradient-primary">
-                      <Waves className="w-5 h-5 text-white" />
-                    </div>
+                    <img 
+                      src={cardinalLogo} 
+                      alt="Cardinal Binaural" 
+                      className="w-10 h-10 rounded-xl shadow-soft"
+                    />
                     <div>
                       <h2 className="font-semibold text-foreground">Quick Actions</h2>
                       <p className="text-xs text-muted-foreground">Access everything instantly</p>

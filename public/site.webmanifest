@@ -1,21 +1,21 @@
 {
   "name": "Cardinal Binaural - Manifestation Through Natural Frequencies",
   "short_name": "Cardinal Binaural",
-  "description": "Align your frequency with 432 Hz & 528 Hz for manifestation, healing, and transformation",
+  "description": "Align your frequency with 432 Hz & 528 Hz for manifestation, healing, and transformation. Created by Hunain Qureshi of Cardinal Consulting.",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#8B5CF6",
-  "background_color": "#0F172A",
+  "theme_color": "#34d399",
+  "background_color": "#ffffff",
   "display": "standalone",
   "start_url": "/",
   "scope": "/",
   "orientation": "portrait-primary",
-  "categories": ["health", "meditation", "wellness", "lifestyle"],
+  "categories": ["health", "meditation", "wellness", "lifestyle", "music"],
   "lang": "en-US"
 }
