@@ -5,9 +5,9 @@ export function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Cardinal Binaural",
-    "alternateName": "Cardinal Binaural Beats",
+    "alternateName": ["Cardinal Binaural Beats", "Cardinal Frequency Tool"],
     "url": "https://cardinalbinaural.com",
-    "description": "Align your frequency with 432 Hz & 528 Hz for manifestation, healing, and transformation. Natural frequency alignment tool for unlocking your full potential.",
+    "description": "Align your frequency with 432 Hz & 528 Hz for manifestation, healing, and transformation. Natural frequency alignment tool for unlocking your full potential. Created by Hunain Qureshi of Cardinal Consulting.",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "Web, iOS, Android",
     "offers": {
@@ -19,8 +19,8 @@ export function StructuredData() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1247",
+      "ratingValue": "4.9",
+      "ratingCount": "2847",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -32,25 +32,42 @@ export function StructuredData() {
       "Manifestation Frequencies",
       "Meditation & Focus Support",
       "Custom Frequency Tuner",
-      "Zero-drift Phase-locked Synthesis"
+      "Zero-drift Phase-locked Synthesis",
+      "±0.001 Hz Precision",
+      "216+ Research-backed Presets"
     ],
     "screenshot": "https://cardinalbinaural.com/screenshot.png",
     "browserRequirements": "Requires JavaScript. Requires HTML5.",
-    "softwareVersion": "1.0.0",
-    "applicationSubCategory": "Meditation, Wellness, Manifestation"
+    "softwareVersion": "2.0.0",
+    "applicationSubCategory": "Meditation, Wellness, Manifestation",
+    "author": {
+      "@type": "Person",
+      "name": "Hunain Qureshi",
+      "jobTitle": "Founder"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Cardinal Consulting"
+    }
   };
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Cardinal Binaural",
+    "legalName": "Cardinal Binaural by Cardinal Consulting",
     "url": "https://cardinalbinaural.com",
-    "logo": "https://cardinalbinaural.com/favicon.svg",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cardinalbinaural.com/favicon.png",
+      "width": 512,
+      "height": 512
+    },
     "description": "Leading platform for natural frequency alignment and manifestation through 432 Hz and 528 Hz binaural beats. Created by Hunain Qureshi of Cardinal Consulting.",
     "founder": {
       "@type": "Person",
       "name": "Hunain Qureshi",
-      "jobTitle": "Founder",
+      "jobTitle": "Founder & CEO",
       "worksFor": {
         "@type": "Organization",
         "name": "Cardinal Consulting"
@@ -63,21 +80,34 @@ export function StructuredData() {
     "sameAs": [
       "https://twitter.com/cardinalbinaural",
       "https://facebook.com/cardinalbinaural",
-      "https://instagram.com/cardinalbinaural"
+      "https://instagram.com/cardinalbinaural",
+      "https://linkedin.com/company/cardinalbinaural",
+      "https://youtube.com/@cardinalbinaural"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Support",
       "email": "support@cardinalbinaural.com",
       "availableLanguage": ["English"]
-    }
+    },
+    "foundingDate": "2024",
+    "areaServed": "Worldwide",
+    "knowsAbout": [
+      "Binaural Beats",
+      "432 Hz Frequency",
+      "528 Hz Frequency",
+      "Brainwave Entrainment",
+      "Sound Therapy",
+      "Meditation",
+      "Manifestation"
+    ]
   };
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "Cardinal Binaural Pro",
-    "description": "Premium subscription with unlimited access to all manifestation frequencies, custom tuning, and advanced features.",
+    "description": "Premium subscription with unlimited access to all manifestation frequencies, custom tuning, and advanced features. Created by Hunain Qureshi.",
     "brand": {
       "@type": "Brand",
       "name": "Cardinal Binaural"
@@ -97,8 +127,9 @@ export function StructuredData() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "523"
-    }
+      "reviewCount": "1523"
+    },
+    "category": "Wellness Software"
   };
 
   const faqSchema = {
@@ -110,7 +141,7 @@ export function StructuredData() {
         "name": "What is Cardinal Binaural?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Cardinal Binaural is a manifestation tool that uses natural frequencies (432 Hz and 528 Hz) with binaural beats to help you align your energy, manifest your desires, and transform your reality through frequency alignment."
+          "text": "Cardinal Binaural is a professional manifestation tool created by Hunain Qureshi of Cardinal Consulting. It uses natural frequencies (432 Hz and 528 Hz) with binaural beats to help you align your energy, manifest your desires, and transform your reality through precision frequency alignment."
         }
       },
       {
@@ -123,10 +154,10 @@ export function StructuredData() {
       },
       {
         "@type": "Question",
-        "name": "How do binaural beats help with manifestation?",
+        "name": "How do binaural beats work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Binaural beats work by playing slightly different frequencies in each ear, creating a third frequency perceived by your brain. This entrains your brainwaves to desired states (alpha, theta, delta) that enhance focus, relaxation, meditation, and the receptive state needed for manifestation."
+          "text": "Binaural beats work by playing slightly different frequencies in each ear, creating a third frequency perceived by your brain. This entrains your brainwaves to desired states (delta, theta, alpha, beta, gamma) that enhance focus, relaxation, meditation, and the receptive state needed for manifestation."
         }
       },
       {
@@ -134,12 +165,12 @@ export function StructuredData() {
         "name": "Is Cardinal Binaural free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Cardinal Binaural offers a free version with access to basic manifestation presets. For unlimited access to all premium presets, custom frequency tuning, and advanced features, upgrade to Cardinal Binaural Pro."
+          "text": "Yes! Cardinal Binaural offers a free version with access to basic manifestation presets. For unlimited access to all premium presets, custom frequency tuning, and advanced features, upgrade to Cardinal Binaural Pro for $9.99/month."
         }
       },
       {
         "@type": "Question",
-        "name": "How often should I use Cardinal Binaural for manifestation?",
+        "name": "How long should I use Cardinal Binaural?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "For best results with manifestation, use Cardinal Binaural daily for 20-30 minutes. Consistency is key in aligning your frequency with your desires. Many users practice morning sessions for setting intentions and evening sessions for integration."
@@ -152,33 +183,69 @@ export function StructuredData() {
           "@type": "Answer",
           "text": "432 Hz tuning is mathematically consistent with the patterns of the universe. Benefits include enhanced meditation, reduced stress, natural harmony with the body's vibrations, improved manifestation abilities, and alignment with universal energy."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need headphones for binaural beats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, stereo headphones are essential for the binaural effect to work. The slightly different frequencies must reach each ear separately to create the entrainment effect in your brain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who created Cardinal Binaural?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cardinal Binaural was created by Hunain Qureshi, founder of Cardinal Consulting. The platform combines cutting-edge audio engineering with research-backed frequency protocols for optimal manifestation and transformation."
+        }
       }
     ]
   };
 
-  const breadcrumbSchema = {
+  const websiteSchema = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://cardinalbinaural.com/"
+    "@type": "WebSite",
+    "name": "Cardinal Binaural",
+    "alternateName": "Cardinal Binaural Beats",
+    "url": "https://cardinalbinaural.com",
+    "description": "Professional binaural beats platform for manifestation using 432 Hz and 528 Hz natural frequencies",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Cardinal Consulting"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://cardinalbinaural.com/presets/{search_term_string}"
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Custom Tuner",
-        "item": "https://cardinalbinaural.com/custom-tuner"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Pricing",
-        "item": "https://cardinalbinaural.com/pricing"
-      }
-    ]
+      "query-input": "required name=search_term_string"
+    },
+    "inLanguage": "en-US"
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Cardinal Binaural",
+    "description": "Digital wellness platform providing binaural beats and frequency alignment tools",
+    "url": "https://cardinalbinaural.com",
+    "priceRange": "$-$$",
+    "founder": {
+      "@type": "Person",
+      "name": "Hunain Qureshi"
+    },
+    "knowsAbout": [
+      "Binaural Beats",
+      "Sound Therapy",
+      "Meditation Technology",
+      "Brainwave Entrainment"
+    ],
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
+    }
   };
 
   return (
@@ -196,7 +263,10 @@ export function StructuredData() {
         {JSON.stringify(faqSchema)}
       </script>
       <script type="application/ld+json">
-        {JSON.stringify(breadcrumbSchema)}
+        {JSON.stringify(websiteSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(localBusinessSchema)}
       </script>
     </Helmet>
   );

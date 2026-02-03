@@ -1,102 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage -->
+  <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://cardinalbinaural.com/</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://cardinalbinaural.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cardinalbinaural.com/"/>
+    <image:image>
+      <image:loc>https://cardinalbinaural.com/favicon.png</image:loc>
+      <image:title>Cardinal Binaural - 432 Hz &amp; 528 Hz Manifestation Tool</image:title>
+      <image:caption>Professional binaural beats generator for manifestation, healing, and transformation</image:caption>
+    </image:image>
   </url>
 
-  <!-- Custom Tuner -->
+  <!-- Custom Tuner - High Priority -->
   <url>
     <loc>https://cardinalbinaural.com/custom-tuner</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/custom-tuner"/>
   </url>
 
-  <!-- Pricing -->
+  <!-- Pricing - Important for Conversion -->
   <url>
     <loc>https://cardinalbinaural.com/pricing</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/pricing"/>
   </url>
 
-  <!-- Auth -->
-  <url>
-    <loc>https://cardinalbinaural.com/auth</loc>
-    <lastmod>2025-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Presets - Focus -->
+  <!-- Presets - Focus (Most Popular) -->
   <url>
     <loc>https://cardinalbinaural.com/presets/Focus</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/presets/Focus"/>
+    <image:image>
+      <image:loc>https://cardinalbinaural.com/favicon.png</image:loc>
+      <image:title>Focus Binaural Beats - 40 Hz Gamma Waves</image:title>
+      <image:caption>40 Hz Gamma waves for enhanced concentration and mental clarity</image:caption>
+    </image:image>
   </url>
 
-  <!-- Presets - Sleep -->
+  <!-- Presets - Sleep (High Search Volume) -->
   <url>
     <loc>https://cardinalbinaural.com/presets/Sleep</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/presets/Sleep"/>
+    <image:image>
+      <image:loc>https://cardinalbinaural.com/favicon.png</image:loc>
+      <image:title>Sleep Binaural Beats - Delta Waves</image:title>
+      <image:caption>Delta wave entrainment for deep restorative sleep and HGH release</image:caption>
+    </image:image>
   </url>
 
   <!-- Presets - Meditation -->
   <url>
     <loc>https://cardinalbinaural.com/presets/Meditation</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/presets/Meditation"/>
+    <image:image>
+      <image:loc>https://cardinalbinaural.com/favicon.png</image:loc>
+      <image:title>Meditation Binaural Beats - Theta Waves</image:title>
+      <image:caption>Theta waves for deep meditation and spiritual connection</image:caption>
+    </image:image>
   </url>
 
   <!-- Presets - Calm -->
   <url>
     <loc>https://cardinalbinaural.com/presets/Calm</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/presets/Calm"/>
   </url>
 
   <!-- Presets - Creative -->
   <url>
     <loc>https://cardinalbinaural.com/presets/Creative</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/presets/Creative"/>
   </url>
 
   <!-- Presets - Energy -->
   <url>
     <loc>https://cardinalbinaural.com/presets/Energy</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/presets/Energy"/>
   </url>
 
   <!-- Presets - Study -->
   <url>
     <loc>https://cardinalbinaural.com/presets/Study</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/presets/Study"/>
   </url>
 
-  <!-- Session History (requires auth, but still indexable) -->
+  <!-- Auth Page -->
+  <url>
+    <loc>https://cardinalbinaural.com/auth</loc>
+    <lastmod>2025-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/auth"/>
+  </url>
+
+  <!-- Session History (Authenticated) -->
   <url>
     <loc>https://cardinalbinaural.com/history</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/history"/>
+  </url>
+
+  <!-- Player Page -->
+  <url>
+    <loc>https://cardinalbinaural.com/player</loc>
+    <lastmod>2025-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cardinalbinaural.com/player"/>
   </url>
 
 </urlset>

@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { ArrowLeft, Play, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { TuningSelector } from '@/components/TuningSelector';
+import { SEOHead, PageSchemas } from '@/components/seo';
 
 interface Preset {
   id: string;
@@ -57,7 +58,15 @@ export default function Presets() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-calm p-6">
+    <>
+      <SEOHead 
+        title={`${intent} Binaural Beats - Cardinal Binaural | 432 Hz & 528 Hz`}
+        description={`${intent} binaural beats using 432 Hz and 528 Hz natural frequencies. Research-backed presets for optimal brainwave entrainment and ${intent?.toLowerCase()} enhancement.`}
+        canonical={`/presets/${intent}`}
+        keywords={`${intent?.toLowerCase()} binaural beats, ${intent?.toLowerCase()} frequencies, 432 Hz ${intent?.toLowerCase()}, 528 Hz ${intent?.toLowerCase()}, brainwave entrainment, meditation music`}
+      />
+      <PageSchemas pageType="preset" presetIntent={intent} />
+      <div className="min-h-screen bg-gradient-calm p-6">
       <div className="max-w-7xl mx-auto">
         <Button
           variant="ghost"
@@ -177,5 +186,6 @@ export default function Presets() {
         )}
       </div>
     </div>
+    </>
   );
 }

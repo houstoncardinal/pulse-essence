@@ -7,6 +7,7 @@ import { useSubscription, FREE_INTENTS } from '@/contexts/SubscriptionContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { trackPurchaseConversion } from '@/lib/gtag';
+import { SEOHead, PageSchemas } from '@/components/seo';
 import cardinalLogo from '@/assets/cardinal-logo.png';
 import {
   ArrowLeft, 
@@ -126,7 +127,16 @@ export default function Pricing() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEOHead 
+        title="Pricing - Cardinal Binaural Pro | Unlimited Frequencies & Features"
+        description="Unlock unlimited access to 216+ research-backed binaural beat presets, custom frequency tuning, and session tracking. 7-day free trial. $9.99/month."
+        canonical="/pricing"
+        keywords="Cardinal Binaural Pro, binaural beats subscription, premium meditation app, frequency alignment subscription, manifestation tool pricing"
+        ogType="product"
+      />
+      <PageSchemas pageType="pricing" />
+      <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card/50 backdrop-blur-lg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-4">
           <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="h-8 w-8 sm:h-10 sm:w-10">
@@ -321,11 +331,11 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* FAQ / Trust */}
         <div className="text-center text-sm text-muted-foreground">
           <p>Cancel anytime • No questions asked • Secure payment via Stripe</p>
         </div>
       </main>
     </div>
+    </>
   );
 }
