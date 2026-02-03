@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
+import { SEOHead, PageSchemas } from '@/components/seo';
 import cardinalLogo from '@/assets/cardinal-logo.png';
 
 export default function Auth() {
@@ -56,7 +57,15 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary/30 p-4">
+    <>
+      <SEOHead 
+        title="Sign In - Cardinal Binaural | Access Your Frequency Sessions"
+        description="Sign in or create an account to access Cardinal Binaural's premium features, save your sessions, and track your manifestation journey."
+        canonical="/auth"
+        noindex={true}
+      />
+      <PageSchemas pageType="auth" />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary/30 p-4">
       <Card className="w-full max-w-md p-6 sm:p-8 bg-card/80 backdrop-blur-xl border-border shadow-elevated">
         <div className="flex flex-col items-center mb-6 sm:mb-8">
           <img 
@@ -123,5 +132,6 @@ export default function Auth() {
         </div>
       </Card>
     </div>
+    </>
   );
 }

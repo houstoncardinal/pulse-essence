@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getAudioEngine } from '@/lib/audioEngine';
+import { SEOHead, PageSchemas } from '@/components/seo';
 import cardinalLogo from '@/assets/cardinal-logo.png';
 import { Play, Pause, ArrowLeft, Info } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -98,7 +99,15 @@ const CustomTuner = () => {
   const waveInfo = getBrainwaveInfo(beatFreq);
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEOHead 
+        title="Custom Frequency Tuner - Cardinal Binaural | Create Your Own Binaural Beats"
+        description="Create custom binaural beats with precision control. Adjust base frequency, beat frequency, and tuning reference using our phase-locked audio engine."
+        canonical="/custom-tuner"
+        keywords="custom binaural beats, frequency tuner, 432 Hz generator, 528 Hz generator, brainwave entrainment tool, DIY binaural beats"
+      />
+      <PageSchemas pageType="tuner" />
+      <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card/50 backdrop-blur-lg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-4">
           <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="h-8 w-8 sm:h-10 sm:w-10">
@@ -436,6 +445,7 @@ const CustomTuner = () => {
         </Card>
       </main>
     </div>
+    </>
   );
 };
 

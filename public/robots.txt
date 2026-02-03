@@ -1,48 +1,238 @@
-# robots.txt for Cardinal Binaural - Manifestation Tool
-# Updated: 2025-12-31
+# ==========================================
+# robots.txt for Cardinal Binaural
+# Manifestation Through Natural Frequencies
+# Created by Hunain Qureshi, Cardinal Consulting
+# Updated: 2025-02-03
+# ==========================================
 
-# Allow all search engines
+# Default: Allow all crawlers
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /*.json$
+Disallow: /player?*
+Disallow: /auth?redirect=*
 
-# Specific bot configurations
+# Crawl rate limiting for general bots
+Crawl-delay: 1
+
+# ==========================================
+# GOOGLE
+# ==========================================
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0.5
 
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+Allow: /pricing
+
+User-agent: Mediapartners-Google
+Allow: /
+
+# ==========================================
+# BING / MICROSOFT
+# ==========================================
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+User-agent: MSNBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: msnbot-media
+Allow: /
+
+# ==========================================
+# YAHOO
+# ==========================================
 User-agent: Slurp
 Allow: /
 Crawl-delay: 1
 
-# Social Media Crawlers
+# ==========================================
+# YANDEX (Russia)
+# ==========================================
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexImages
+Allow: /
+
+# ==========================================
+# BAIDU (China)
+# ==========================================
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider-image
+Allow: /
+
+# ==========================================
+# DUCKDUCKGO
+# ==========================================
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# ==========================================
+# SOGOU (China)
+# ==========================================
+User-agent: Sogou
+Allow: /
+Crawl-delay: 2
+
+# ==========================================
+# NAVER (Korea)
+# ==========================================
+User-agent: Yeti
+Allow: /
+Crawl-delay: 2
+
+# ==========================================
+# SEZNAM (Czech Republic)
+# ==========================================
+User-agent: SeznamBot
+Allow: /
+Crawl-delay: 2
+
+# ==========================================
+# SOCIAL MEDIA CRAWLERS
+# ==========================================
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: FacebookExternalHit
+Allow: /
+
 User-agent: LinkedInBot
 Allow: /
 
-User-agent: PinterestBot
+User-agent: Pinterest
 Allow: /
 
-# Bad Bots (block known scrapers)
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: SkypeUriPreview
+Allow: /
+
+# ==========================================
+# SEO TOOLS (Allow with rate limiting)
+# ==========================================
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: Screaming Frog SEO Spider
+Allow: /
+Crawl-delay: 5
+
+User-agent: rogerbot
+Allow: /
+Crawl-delay: 10
+
+User-agent: dotbot
+Allow: /
+Crawl-delay: 10
+
+# ==========================================
+# AI / RESEARCH CRAWLERS
+# ==========================================
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 2
+
+# ==========================================
+# BAD BOTS (Block known scrapers/spammers)
+# ==========================================
 User-agent: AhrefsBot
 Disallow: /
 
 User-agent: MJ12bot
 Disallow: /
 
-User-agent: SemrushBot
-Crawl-delay: 10
+User-agent: DataForSeoBot
+Disallow: /
 
-# Sitemap location
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+# ==========================================
+# SITEMAPS
+# ==========================================
 Sitemap: https://cardinalbinaural.com/sitemap.xml
+
+# ==========================================
+# HOST
+# ==========================================
+Host: https://cardinalbinaural.com

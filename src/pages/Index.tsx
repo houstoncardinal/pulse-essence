@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { IntentCard } from '@/components/IntentCard';
 import { StructuredData } from '@/components/StructuredData';
+import { SEOHead, AdvancedSchemas, PageSchemas } from '@/components/seo';
 import { useAuth } from '@/contexts/AuthContext';
 import { useSubscription } from '@/contexts/SubscriptionContext';
 import { MobileToolbar } from '@/components/MobileToolbar';
@@ -132,7 +133,10 @@ const Index = () => {
 
   return (
     <>
+      <SEOHead canonical="/" />
       <StructuredData />
+      <AdvancedSchemas />
+      <PageSchemas pageType="home" />
       <div className="min-h-screen bg-background pb-20 md:pb-0">
         <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
