@@ -46,7 +46,20 @@ export function StructuredData() {
     "name": "Cardinal Binaural",
     "url": "https://cardinalbinaural.com",
     "logo": "https://cardinalbinaural.com/favicon.svg",
-    "description": "Leading platform for natural frequency alignment and manifestation through 432 Hz and 528 Hz binaural beats.",
+    "description": "Leading platform for natural frequency alignment and manifestation through 432 Hz and 528 Hz binaural beats. Created by Hunain Qureshi of Cardinal Consulting.",
+    "founder": {
+      "@type": "Person",
+      "name": "Hunain Qureshi",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Cardinal Consulting"
+      }
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Cardinal Consulting"
+    },
     "sameAs": [
       "https://twitter.com/cardinalbinaural",
       "https://facebook.com/cardinalbinaural",

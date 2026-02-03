@@ -444,15 +444,44 @@ const Index = () => {
       </main>
 
       <footer className="border-t border-border bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-center">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <div className="p-1.5 rounded-lg bg-gradient-primary">
-              <Waves className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+          <div className="flex flex-col items-center text-center">
+            {/* Logo & Brand */}
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-primary shadow-soft">
+                <Waves className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <div className="text-left">
+                <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground">Cardinal Binaural</span>
+                <p className="text-[10px] sm:text-xs text-muted-foreground">Manifestation & Frequency Alignment</p>
+              </div>
             </div>
-            <span className="text-base sm:text-lg font-semibold">Cardinal Binaural</span>
+            
+            {/* Tech Specs */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+              {['Phase-Locked Synthesis', 'Zero Drift', 'Sample-Accurate', '48kHz Audio'].map((spec) => (
+                <span key={spec} className="px-3 py-1 text-[10px] sm:text-xs rounded-full bg-secondary text-muted-foreground border border-border">
+                  {spec}
+                </span>
+              ))}
+            </div>
+            
+            {/* Divider */}
+            <div className="w-full max-w-md h-px bg-border mb-6 sm:mb-8" />
+            
+            {/* Creator Credit */}
+            <div className="mb-4 sm:mb-6">
+              <p className="text-xs sm:text-sm text-muted-foreground mb-1">
+                Created by <span className="font-semibold text-foreground">Hunain Qureshi</span>
+              </p>
+              <p className="text-[10px] sm:text-xs text-primary font-medium">Cardinal Consulting</p>
+            </div>
+            
+            {/* Copyright */}
+            <p className="text-[10px] sm:text-xs text-muted-foreground">
+              © {new Date().getFullYear()} Cardinal Binaural. All rights reserved.
+            </p>
           </div>
-          <p className="text-xs sm:text-sm text-muted-foreground mb-2">© 2025 Cardinal Binaural. All rights reserved.</p>
-          <p className="text-[10px] sm:text-xs text-muted-foreground">Phase-locked synthesis • Zero drift • Sample-accurate</p>
         </div>
       </footer>
 
