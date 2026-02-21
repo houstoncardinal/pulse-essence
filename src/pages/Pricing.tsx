@@ -123,7 +123,7 @@ export default function Pricing() {
     { text: 'Session history & analytics', included: true },
     { text: 'Priority support', included: true },
     { text: 'Audio downloads (coming soon)', included: true },
-    { text: 'Nature soundscapes (coming soon)', included: true },
+    { text: '12 procedural nature soundscapes', included: true },
   ];
 
   return (

@@ -108,6 +108,10 @@ const Index = () => {
         Creative: 'Unlock creative flow and problem-solving with Theta-Alpha bridges.',
         Meditation: 'Deepen your practice with resonant frequencies and sacred tones.',
         Energy: 'Boost alertness and vitality with invigorating Beta waves.',
+        Healing: 'Restore balance with Solfeggio frequencies and harmonic resonance.',
+        Manifestation: 'Align your vibration with 432/528 Hz for intention setting and attraction.',
+        Relaxation: 'Release tension with gentle Alpha-Theta entrainment.',
+        Spiritual: 'Explore higher states of consciousness with sacred frequency protocols.',
       };
 
       const grouped = Array.from(intentMap.entries()).map(([intent, data]) => ({
@@ -296,7 +300,7 @@ const Index = () => {
               {[
                 { value: '±0.001 Hz', label: 'Frequency Accuracy' },
                 { value: '0 ms', label: 'Phase Drift' },
-                { value: '48 kHz', label: 'Sample Rate' },
+                { value: '48+ kHz', label: 'Native Sample Rate' },
                 { value: '2 Refs', label: '432/528 Hz' },
               ].map((stat, index) => (
                 <motion.div 
@@ -486,7 +490,7 @@ const Index = () => {
             
             {/* Tech Specs */}
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-              {['Phase-Locked Synthesis', 'Zero Drift', 'Sample-Accurate', '48kHz Audio'].map((spec) => (
+              {['Phase-Locked Synthesis', 'Zero Drift', 'Sample-Accurate', 'Native Sample Rate'].map((spec) => (
                 <span key={spec} className="px-3 py-1 text-[10px] sm:text-xs rounded-full bg-secondary text-muted-foreground border border-border">
                   {spec}
                 </span>

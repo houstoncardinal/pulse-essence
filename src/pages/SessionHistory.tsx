@@ -27,6 +27,7 @@ import {
   Bar
 } from 'recharts';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { SEOHead } from '@/components/seo';
 
 interface Session {
   id: string;
@@ -177,6 +178,13 @@ export default function SessionHistory() {
   if (!user) return null;
 
   return (
+    <>
+    <SEOHead 
+      title="Session History - Cardinal Binaural | Track Your Progress"
+      description="View your binaural beats session history, track listening time, and monitor your wellness journey with Cardinal Binaural."
+      canonical="/history"
+      noindex={true}
+    />
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
@@ -367,5 +375,6 @@ export default function SessionHistory() {
         )}
       </main>
     </div>
+    </>
   );
 }
