@@ -3,8 +3,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
-import { Play, Pause, X, Volume2 } from 'lucide-react';
+import { Play, Pause, X, Volume2, Waves, ChevronDown, ChevronUp } from 'lucide-react';
 import { getAudioEngine } from '@/lib/audioEngine';
+import { getAmbientEngine, type AmbientSoundType } from '@/lib/ambientEngine';
+import { AMBIENT_SOUNDS } from '@/components/AmbientSoundCard';
 import { WaveformVisualizer } from '@/components/WaveformVisualizer';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -22,6 +24,10 @@ export default function Player() {
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [audioEngine] = useState(() => getAudioEngine());
+  const [ambientEngine] = useState(() => getAmbientEngine());
+  const [ambientSound, setAmbientSound] = useState<AmbientSoundType | null>(null);
+  const [ambientVolume, setAmbientVolume] = useState(0.2);
+  const [showAmbientMixer, setShowAmbientMixer] = useState(false);
 
   const totalSeconds = (preset?.duration_min || 30) * 60;
 
@@ -32,11 +38,10 @@ export default function Player() {
     }
 
     return () => {
-      if (audioEngine) {
-        audioEngine.stop();
-      }
+      if (audioEngine) audioEngine.stop();
+      if (ambientEngine.getIsPlaying()) ambientEngine.stop();
     };
-  }, [preset, navigate, audioEngine]);
+  }, [preset, navigate, audioEngine, ambientEngine]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -143,10 +148,34 @@ export default function Player() {
 
   const handleStop = async () => {
     await audioEngine.stop();
+    if (ambientEngine.getIsPlaying()) await ambientEngine.stop();
     await endSession();
     setIsPlaying(false);
     navigate('/');
   };
+
+  const toggleAmbient = async (type: AmbientSoundType) => {
+    try {
+      if (ambientSound === type) {
+        await ambientEngine.stop();
+        setAmbientSound(null);
+      } else {
+        if (ambientEngine.getIsPlaying()) {
+          await ambientEngine.stop();
+          await new Promise(r => setTimeout(r, 350));
+        }
+        await ambientEngine.start({ type, amp: ambientVolume, density: 0.5, brightness: 0.5 });
+        setAmbientSound(type);
+      }
+    } catch {
+      toast({ title: 'Error', description: 'Could not start ambient sound', variant: 'destructive' });
+    }
+  };
+
+  const handleAmbientVolumeChange = useCallback((val: number[]) => {
+    setAmbientVolume(val[0]);
+    ambientEngine.updateParams({ amp: val[0] });
+  }, [ambientEngine]);
 
   const handleIntensityChange = useCallback(
     (value: number[]) => {
@@ -215,6 +244,55 @@ export default function Player() {
             step={0.05}
             className="w-full"
           />
+        </div>
+
+        {/* Ambient Sound Mixer */}
+        <div className="mb-8">
+          <button
+            onClick={() => setShowAmbientMixer(!showAmbientMixer)}
+            className="flex items-center gap-2 w-full text-left mb-3"
+          >
+            <Waves className="w-5 h-5 text-muted-foreground" />
+            <span className="text-sm font-medium flex-1">
+              Ambient Sounds {ambientSound ? `• ${AMBIENT_SOUNDS.find(s => s.id === ambientSound)?.name}` : ''}
+            </span>
+            {showAmbientMixer ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
+          </button>
+          
+          {showAmbientMixer && (
+            <div className="space-y-3 animate-fade-in">
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                {AMBIENT_SOUNDS.map((sound) => (
+                  <button
+                    key={sound.id}
+                    onClick={() => toggleAmbient(sound.id)}
+                    className={`p-2 rounded-lg text-center transition-all text-xs border ${
+                      ambientSound === sound.id
+                        ? 'bg-primary/10 border-primary text-primary shadow-sm'
+                        : 'bg-secondary/50 border-border hover:border-primary/30 text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    <span className="text-lg block mb-0.5">{sound.icon}</span>
+                    <span className="truncate block text-[10px]">{sound.name}</span>
+                  </button>
+                ))}
+              </div>
+              {ambientSound && (
+                <div className="flex items-center gap-3 pt-2">
+                  <Volume2 className="w-4 h-4 text-muted-foreground" />
+                  <Slider
+                    value={[ambientVolume]}
+                    onValueChange={handleAmbientVolumeChange}
+                    min={0.05}
+                    max={0.6}
+                    step={0.05}
+                    className="flex-1"
+                  />
+                  <span className="text-xs text-muted-foreground w-8">{Math.round(ambientVolume * 100)}%</span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="flex gap-4 justify-center">
