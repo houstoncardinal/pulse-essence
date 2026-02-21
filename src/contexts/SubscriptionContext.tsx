@@ -21,7 +21,8 @@ const SubscriptionContext = createContext<SubscriptionContextType | undefined>(u
 const PRO_PRODUCT_ID = "prod_ThgUgtdm3wTY5I";
 
 // Free tier presets (3 basic ones)
-export const FREE_INTENTS = ['Focus', 'Sleep', 'Calm'];
+// All intents are free to try — subscription limits session count instead
+export const FREE_INTENTS = ['Focus', 'Sleep', 'Calm', 'Study', 'Creative', 'Meditation', 'Energy', 'Healing', 'Manifestation', 'Relaxation', 'Spiritual'];
 
 export function SubscriptionProvider({ children }: { children: ReactNode }) {
   const { user, session } = useAuth();
