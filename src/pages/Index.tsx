@@ -12,6 +12,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { useToast } from '@/hooks/use-toast';
 import SDFDreamscape from '@/components/ui/sdf-dreamscape';
 import { FrequencyReferenceChart } from '@/components/FrequencyReferenceChart';
+import { AmbientSoundSection } from '@/components/AmbientSoundSection';
 import cardinalLogo from '@/assets/cardinal-logo.png';
 import { 
   Waves,
@@ -360,6 +361,11 @@ const Index = () => {
               ))}
             </div>
           )}
+        </section>
+
+        {/* Ambient Sound Bath Section */}
+        <section className="py-8 sm:py-12 md:py-16 border-t border-border">
+          <AmbientSoundSection />
         </section>
 
         {/* How It Works Section */}
