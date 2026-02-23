@@ -3,10 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowLeft, Play, Sparkles } from 'lucide-react';
+import { ArrowLeft, Play, Sparkles, Headphones } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { TuningSelector } from '@/components/TuningSelector';
 import { SEOHead, PageSchemas } from '@/components/seo';
+import { motion } from 'framer-motion';
+import cardinalLogo from '@/assets/cardinal-logo.png';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 interface Preset {
   id: string;
@@ -17,6 +20,7 @@ interface Preset {
   beat_hz_end: number;
   duration_min: number;
   tuning_ref: number;
+  base_freq_hz: number;
 }
 
 export default function Presets() {
@@ -66,126 +70,135 @@ export default function Presets() {
         keywords={`${intent?.toLowerCase()} binaural beats, ${intent?.toLowerCase()} frequencies, 432 Hz ${intent?.toLowerCase()}, 528 Hz ${intent?.toLowerCase()}, brainwave entrainment, meditation music`}
       />
       <PageSchemas pageType="preset" presetIntent={intent} />
-      <div className="min-h-screen bg-gradient-calm p-6">
-      <div className="max-w-7xl mx-auto">
-        <Button
-          variant="ghost"
-          onClick={() => navigate('/')}
-          className="mb-6 hover:bg-primary/10 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back
-        </Button>
-
-        <div className="mb-8 flex items-start justify-between">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <h1 className="text-5xl font-bold capitalize bg-gradient-primary bg-clip-text text-transparent">
-                {intent} Sessions
-              </h1>
-              <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+      <div className="min-h-screen bg-background">
+        {/* Header */}
+        <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="h-8 w-8 sm:h-10 sm:w-10">
+                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
+              <div className="flex items-center gap-2">
+                <img src={cardinalLogo} alt="Cardinal Binaural" className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg shadow-soft" />
+                <div>
+                  <h1 className="text-sm sm:text-lg font-bold">{intent} Sessions</h1>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">Select a preset to begin</p>
+                </div>
+              </div>
             </div>
-            <p className="text-lg text-muted-foreground">
-              Select a scientifically-tuned preset to begin your session
-            </p>
+            <ThemeToggle />
           </div>
-        </div>
+        </header>
 
-        <div className="mb-8">
-          <Card className="p-6 bg-glass-bg backdrop-blur-xl border-2 border-glass-border shadow-card">
-            <TuningSelector selected={selectedTuning} onChange={setSelectedTuning} />
-          </Card>
-        </div>
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          {/* Tuning Selector */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 sm:mb-8"
+          >
+            <Card className="p-4 sm:p-6 bg-card border-border">
+              <TuningSelector selected={selectedTuning} onChange={setSelectedTuning} />
+            </Card>
+          </motion.div>
 
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <Card key={i} className="p-6 animate-pulse bg-glass-bg backdrop-blur-xl border-2 border-glass-border">
-                <div className="h-6 bg-gradient-primary/20 rounded-lg mb-4" />
-                <div className="h-4 bg-muted rounded mb-2" />
-                <div className="h-4 bg-muted rounded w-2/3" />
-              </Card>
-            ))}
-          </div>
-        ) : presets.length === 0 ? (
-          <Card className="p-12 text-center bg-glass-bg backdrop-blur-xl border-2 border-glass-border shadow-card">
-            <p className="text-muted-foreground text-lg">
-              No presets available for {selectedTuning} Hz tuning in this category.
-            </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              Try selecting a different tuning frequency above.
-            </p>
-          </Card>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {presets.map((preset, index) => (
-              <Card
-                key={preset.id}
-                className="group relative overflow-hidden p-6 bg-glass-bg backdrop-blur-xl border-2 border-glass-border shadow-card hover:shadow-luxury transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:border-primary/50"
-                onClick={() => handleStartSession(preset)}
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                {/* Animated shimmer on hover */}
-                <div className="absolute inset-0 bg-shimmer bg-[length:200%_100%] opacity-0 group-hover:opacity-20 group-hover:animate-shimmer" />
-                
-                {/* Gradient accent corner */}
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-primary opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                        {preset.name}
-                      </h3>
-                      <div className="flex flex-wrap gap-2 text-xs mb-3">
-                        <span className="px-3 py-1.5 bg-gradient-primary text-white rounded-full font-medium capitalize shadow-sm">
+          {/* Headphones Tip */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary/5 border border-primary/10 mb-6 text-xs text-primary"
+          >
+            <Headphones className="w-4 h-4 flex-shrink-0" />
+            <span>For best results, use headphones with binaural mode</span>
+          </motion.div>
+
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="animate-pulse">
+                  <div className="h-52 bg-muted rounded-xl" />
+                </div>
+              ))}
+            </div>
+          ) : presets.length === 0 ? (
+            <Card className="p-12 text-center border-border">
+              <Sparkles className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+              <p className="text-muted-foreground text-base font-medium mb-1">
+                No presets available for {selectedTuning} Hz
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Try selecting a different tuning frequency above.
+              </p>
+            </Card>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {presets.map((preset, index) => (
+                <motion.div
+                  key={preset.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <Card
+                    className="group relative overflow-hidden p-5 sm:p-6 bg-card border-border hover:border-primary/30 hover:shadow-float transition-all duration-300 cursor-pointer h-full"
+                    onClick={() => handleStartSession(preset)}
+                  >
+                    {/* Hover gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    <div className="relative z-10">
+                      <div className="flex items-start justify-between mb-3">
+                        <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors pr-2">
+                          {preset.name}
+                        </h3>
+                        <motion.div whileHover={{ scale: 1.1 }}>
+                          <Button
+                            size="icon"
+                            className="bg-gradient-primary shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 h-9 w-9"
+                          >
+                            <Play className="w-4 h-4 fill-white" />
+                          </Button>
+                        </motion.div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        <span className="px-2.5 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium capitalize">
                           {preset.mode}
                         </span>
-                        <span className="px-3 py-1.5 bg-gradient-accent text-white rounded-full font-medium shadow-sm">
+                        <span className="px-2.5 py-1 bg-accent/10 text-accent rounded-full text-[11px] font-medium">
                           {preset.duration_min} min
                         </span>
-                        <span className="px-3 py-1.5 bg-gradient-success text-white rounded-full font-medium shadow-sm">
+                        <span className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-full text-[11px] font-medium">
                           {preset.tuning_ref} Hz
                         </span>
                       </div>
-                    </div>
-                    <Button
-                      size="icon"
-                      className="bg-gradient-primary hover:shadow-glow shadow-card opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
-                    >
-                      <Play className="w-4 h-4 fill-white" />
-                    </Button>
-                  </div>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {preset.description}
-                  </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                        {preset.description}
+                      </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t-2 border-glass-border">
-                    <div className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
-                      {preset.beat_hz_start === preset.beat_hz_end ? (
-                        <span className="flex items-center gap-1">
-                          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                          {preset.beat_hz_start} Hz steady
+                      <div className="flex items-center justify-between pt-3 border-t border-border">
+                        <div className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                          {preset.beat_hz_start === preset.beat_hz_end ? (
+                            <span>{preset.beat_hz_start} Hz steady</span>
+                          ) : (
+                            <span>{preset.beat_hz_start} → {preset.beat_hz_end} Hz</span>
+                          )}
+                        </div>
+                        <span className="text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                          START →
                         </span>
-                      ) : (
-                        <span className="flex items-center gap-1">
-                          <div className="w-2 h-2 rounded-full bg-gradient-primary" />
-                          {preset.beat_hz_start} → {preset.beat_hz_end} Hz
-                        </span>
-                      )}
+                      </div>
                     </div>
-                    <span className="text-xs font-bold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
-                      START →
-                    </span>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        )}
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </main>
       </div>
-    </div>
     </>
   );
 }

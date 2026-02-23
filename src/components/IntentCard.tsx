@@ -1,19 +1,37 @@
-import { Brain, Moon, Heart, Lightbulb, Zap, Volume2, Lock, Crown } from 'lucide-react';
+import { Brain, Moon, Heart, Lightbulb, Zap, Volume2, Sparkles, Leaf, Sun, Eye } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
 import { useSubscription, FREE_INTENTS } from '@/contexts/SubscriptionContext';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
 
-const intentIcons = {
+const intentIcons: Record<string, any> = {
   Focus: Brain,
   Study: Lightbulb,
   Sleep: Moon,
   Calm: Heart,
   Creative: Zap,
   Meditation: Volume2,
-  Energy: Zap,
+  Energy: Sun,
+  Healing: Leaf,
+  Manifestation: Sparkles,
+  Relaxation: Heart,
+  Spiritual: Eye,
 };
 
+const intentGradients: Record<string, string> = {
+  Focus: 'from-blue-500/10 to-cyan-500/5',
+  Study: 'from-amber-500/10 to-yellow-500/5',
+  Sleep: 'from-indigo-500/10 to-purple-500/5',
+  Calm: 'from-teal-500/10 to-emerald-500/5',
+  Creative: 'from-orange-500/10 to-rose-500/5',
+  Meditation: 'from-violet-500/10 to-purple-500/5',
+  Energy: 'from-red-500/10 to-orange-500/5',
+  Healing: 'from-emerald-500/10 to-green-500/5',
+  Manifestation: 'from-primary/10 to-accent/5',
+  Relaxation: 'from-sky-500/10 to-blue-500/5',
+  Spiritual: 'from-fuchsia-500/10 to-violet-500/5',
+};
 
 interface IntentCardProps {
   intent: string;
@@ -22,92 +40,69 @@ interface IntentCardProps {
   presets: Array<{ name: string; tuning_ref: number }>;
 }
 
-const tuningColors: Record<number, string> = {
-  432: 'text-accent',
-  528: 'text-emerald-500',
-};
-
 export function IntentCard({ intent, description, presetCount, presets }: IntentCardProps) {
   const navigate = useNavigate();
-  const { isPro, loading } = useSubscription();
-  const Icon = intentIcons[intent as keyof typeof intentIcons] || Brain;
-  
-  // Check if this intent is available for free users
-  const isFreeIntent = FREE_INTENTS.includes(intent);
-  const isLocked = !isPro && !isFreeIntent;
+  const { isPro } = useSubscription();
+  const Icon = intentIcons[intent] || Brain;
+  const gradient = intentGradients[intent] || 'from-primary/10 to-accent/5';
 
   const handleClick = () => {
-    if (isLocked) {
-      navigate('/pricing');
-    } else {
-      navigate(`/presets/${intent.toLowerCase()}`);
-    }
+    navigate(`/presets/${intent}`);
   };
 
   return (
-    <Card
-      onClick={handleClick}
-      className={`group relative cursor-pointer border transition-all duration-300 h-full ${
-        isLocked 
-          ? 'border-border/50 bg-card/50 hover:border-primary/20' 
-          : 'border-border bg-card hover:border-primary/30 hover:shadow-float'
-      }`}
-    >
-      {/* Pro badge */}
-      {!isFreeIntent && (
-        <div className="absolute top-2 right-2 z-10">
-          <Badge variant={isPro ? "default" : "secondary"} className="text-[10px] gap-1">
-            <Crown className="w-3 h-3" />
-            PRO
-          </Badge>
-        </div>
-      )}
-      
-      {/* Lock overlay for non-pro users */}
-      {isLocked && (
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px] rounded-lg z-[5] flex items-center justify-center">
-          <div className="text-center p-4">
-            <Lock className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-            <p className="text-sm font-medium text-muted-foreground">Upgrade to Pro</p>
-          </div>
-        </div>
-      )}
+    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
+      <Card
+        onClick={handleClick}
+        className="group relative cursor-pointer border border-border bg-card hover:border-primary/30 hover:shadow-float transition-all duration-300 h-full overflow-hidden"
+      >
+        {/* Subtle gradient overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-      <div className={`p-4 sm:p-6 h-full flex flex-col ${isLocked ? 'opacity-60' : ''}`}>
-        <div className="flex items-start justify-between mb-4 sm:mb-6">
-          <div className={`p-2.5 sm:p-3 rounded-xl transition-colors ${
-            isLocked ? 'bg-muted' : 'bg-primary/5 group-hover:bg-primary/10'
-          }`}>
-            <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${isLocked ? 'text-muted-foreground' : 'text-primary'}`} />
-          </div>
-          <div className="text-xs text-muted-foreground font-medium">
-            {presetCount} sessions
-          </div>
-        </div>
-
-        <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground">
-          {intent}
-        </h3>
-        
-        <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
-          {description}
-        </p>
-
-        {/* Preset Previews */}
-        <div className="mt-auto space-y-2 pt-3 sm:pt-4 border-t border-border">
-          {presets.slice(0, 3).map((preset, idx) => (
-            <div 
-              key={idx} 
-              className="flex items-center justify-between text-xs"
-            >
-              <span className="text-muted-foreground truncate flex-1 pr-2">{preset.name}</span>
-              <span className="text-primary/70 flex-shrink-0 font-medium">
-                {preset.tuning_ref}Hz
+        <div className="relative p-4 sm:p-6 h-full flex flex-col">
+          <div className="flex items-start justify-between mb-4 sm:mb-5">
+            <div className="p-2.5 sm:p-3 rounded-xl bg-primary/5 group-hover:bg-primary/10 transition-colors">
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary animate-pulse" />
+              <span className="text-xs text-muted-foreground font-medium">
+                {presetCount} sessions
               </span>
             </div>
-          ))}
+          </div>
+
+          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+            {intent}
+          </h3>
+
+          <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-5 leading-relaxed flex-1">
+            {description}
+          </p>
+
+          {/* Preset Previews */}
+          <div className="space-y-1.5 pt-3 sm:pt-4 border-t border-border">
+            {presets.slice(0, 3).map((preset, idx) => (
+              <div
+                key={idx}
+                className="flex items-center justify-between text-xs group/preset"
+              >
+                <span className="text-muted-foreground truncate flex-1 pr-2 group-hover/preset:text-foreground transition-colors">{preset.name}</span>
+                <span className="text-primary/60 flex-shrink-0 font-mono text-[11px]">
+                  {preset.tuning_ref}Hz
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Hover CTA */}
+          <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="text-xs font-medium text-primary flex items-center gap-1">
+              Explore sessions →
+            </div>
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </motion.div>
   );
 }

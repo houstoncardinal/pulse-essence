@@ -8,6 +8,8 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { SEOHead, PageSchemas } from '@/components/seo';
 import cardinalLogo from '@/assets/cardinal-logo.png';
+import { motion } from 'framer-motion';
+import { Waves, ArrowRight } from 'lucide-react';
 
 export default function Auth() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -65,73 +67,104 @@ export default function Auth() {
         noindex={true}
       />
       <PageSchemas pageType="auth" />
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary/30 p-4">
-      <Card className="w-full max-w-md p-6 sm:p-8 bg-card/80 backdrop-blur-xl border-border shadow-elevated">
-        <div className="flex flex-col items-center mb-6 sm:mb-8">
-          <img 
-            src={cardinalLogo} 
-            alt="Cardinal Binaural" 
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-float mb-4"
-          />
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Cardinal Binaural</h1>
-          <p className="text-muted-foreground mt-2 text-center text-sm sm:text-base">
-            Align your frequency. Manifest your reality.
-          </p>
-        </div>
+      <div className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden p-4">
+        {/* Ambient background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/8 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-accent/5 blur-[80px] pointer-events-none" />
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={isLoading}
-            />
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="w-full max-w-md relative z-10"
+        >
+          <Card className="p-6 sm:p-8 bg-card/80 backdrop-blur-xl border-border shadow-elevated">
+            <div className="flex flex-col items-center mb-8">
+              <motion.img 
+                src={cardinalLogo} 
+                alt="Cardinal Binaural" 
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-float mb-4"
+                whileHover={{ scale: 1.05, rotate: 2 }}
+              />
+              <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Cardinal Binaural</h1>
+              <p className="text-muted-foreground mt-2 text-center text-sm">
+                Align your frequency. Manifest your reality.
+              </p>
+            </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              disabled={isLoading}
-              minLength={6}
-            />
-          </div>
+            {/* Mode toggle */}
+            <div className="flex rounded-xl bg-secondary/50 p-1 mb-6">
+              <button
+                onClick={() => setIsSignUp(false)}
+                className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
+                  !isSignUp ? 'bg-card text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Sign In
+              </button>
+              <button
+                onClick={() => setIsSignUp(true)}
+                className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
+                  isSignUp ? 'bg-card text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Sign Up
+              </button>
+            </div>
 
-          <Button
-            type="submit"
-            className="w-full bg-gradient-primary hover:opacity-90"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Loading...' : isSignUp ? 'Create Account' : 'Sign In'}
-          </Button>
-        </form>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  className="h-11"
+                />
+              </div>
 
-        <div className="mt-6 text-center">
-          <button
-            onClick={() => setIsSignUp(!isSignUp)}
-            className="text-sm text-muted-foreground hover:text-primary transition-colors"
-          >
-            {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
-          </button>
-        </div>
+              <div className="space-y-2">
+                <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  minLength={6}
+                  className="h-11"
+                />
+              </div>
 
-        <div className="mt-8 p-4 rounded-lg bg-muted/50 border border-glass-border">
-          <p className="text-xs text-muted-foreground text-center">
-            Not medical advice. Use responsibly. Avoid while driving or operating machinery.
-          </p>
-        </div>
-      </Card>
-    </div>
+              <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-primary hover:opacity-90 h-11 text-sm font-semibold gap-2"
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Loading...' : isSignUp ? 'Create Account' : 'Sign In'}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </motion.div>
+            </form>
+
+            <div className="mt-8 p-3 rounded-xl bg-muted/30 border border-border">
+              <div className="flex items-center gap-2 justify-center">
+                <Waves className="w-3.5 h-3.5 text-muted-foreground" />
+                <p className="text-[11px] text-muted-foreground text-center">
+                  Not medical advice. Use responsibly. Avoid while driving or operating machinery.
+                </p>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+      </div>
     </>
   );
 }

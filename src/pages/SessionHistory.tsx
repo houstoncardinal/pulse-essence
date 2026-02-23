@@ -27,7 +27,7 @@ import {
   Bar
 } from 'recharts';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import { SEOHead } from '@/components/seo';
+import { SEOHead, PageSchemas } from '@/components/seo';
 
 interface Session {
   id: string;
@@ -185,6 +185,7 @@ export default function SessionHistory() {
       canonical="/history"
       noindex={true}
     />
+    <PageSchemas pageType="history" />
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
