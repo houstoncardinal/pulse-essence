@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
-import { Play, Pause, X, Volume2, Waves, ChevronDown, ChevronUp, Headphones, Timer, Radio } from 'lucide-react';
+import { Play, Pause, X, Volume2, Waves, ChevronDown, ChevronUp, Headphones, Timer, Radio, Sparkles } from 'lucide-react';
 import { getAudioEngine } from '@/lib/audioEngine';
 import { getAmbientEngine, type AmbientSoundType } from '@/lib/ambientEngine';
 import { AMBIENT_SOUNDS } from '@/components/AmbientSoundCard';
@@ -13,6 +13,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { SEOHead, PageSchemas } from '@/components/seo';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ImmersiveVisualizer } from '@/components/ImmersiveVisualizer';
 
 export default function Player() {
   const location = useLocation();
@@ -30,6 +31,7 @@ export default function Player() {
   const [ambientSound, setAmbientSound] = useState<AmbientSoundType | null>(null);
   const [ambientVolume, setAmbientVolume] = useState(0.2);
   const [showAmbientMixer, setShowAmbientMixer] = useState(false);
+  const [showVisualizer, setShowVisualizer] = useState(false);
 
   const totalSeconds = (preset?.duration_min || 30) * 60;
 
@@ -375,6 +377,25 @@ export default function Player() {
                 </AnimatePresence>
               </div>
 
+              {/* Immersive Visualizer Button */}
+              <div className="mb-6">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setShowVisualizer(true)}
+                  className="w-full flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-colors group"
+                >
+                  <div className="p-2 rounded-lg bg-primary/15 group-hover:bg-primary/25 transition-colors">
+                    <Sparkles className="w-4 h-4 text-primary" />
+                  </div>
+                  <div className="text-left flex-1">
+                    <span className="text-sm font-medium text-foreground block">Immersive Visualizer</span>
+                    <span className="text-[10px] text-muted-foreground">10 full-screen reactive scenes</span>
+                  </div>
+                  <span className="text-xs text-primary font-medium">Launch →</span>
+                </motion.button>
+              </div>
+
               {/* Play Controls */}
               <div className="flex gap-3 justify-center mb-6">
                 {!isPlaying ? (
@@ -429,6 +450,16 @@ export default function Player() {
             </Card>
           </motion.div>
         </div>
+
+        {/* Immersive Visualizer Overlay */}
+        <ImmersiveVisualizer
+          isOpen={showVisualizer}
+          onClose={() => setShowVisualizer(false)}
+          beatHz={preset?.beat_hz_start || 7}
+          baseFreq={preset?.base_freq_hz || 200}
+          intensity={intensity}
+          isPlaying={isPlaying}
+        />
       </div>
     </>
   );
