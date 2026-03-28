@@ -101,10 +101,10 @@ const CustomTuner = () => {
   return (
     <>
       <SEOHead 
-        title="Custom Frequency Tuner - Cardinal Binaural | Create Your Own Binaural Beats"
-        description="Create custom binaural beats with precision control. Adjust base frequency, beat frequency, and tuning reference using our phase-locked audio engine."
+        title="Custom Binaural Beats Generator — Free Online Tool"
+        description="Build custom binaural beats online for free. Choose carrier frequency, beat frequency, mode (binaural/monaural/isochronic), and tuning (432 Hz or 528 Hz). ±0.001 Hz precision."
         canonical="/custom-tuner"
-        keywords="custom binaural beats, frequency tuner, 432 Hz generator, 528 Hz generator, brainwave entrainment tool, DIY binaural beats"
+        keywords="custom binaural beats generator, make your own binaural beats, binaural beats creator, online frequency generator, 432 Hz generator, 528 Hz generator, custom brainwave entrainment, DIY binaural beats, tone generator online, frequency maker, Hz generator"
       />
       <PageSchemas pageType="tuner" />
       <div className="min-h-screen bg-background">

@@ -138,7 +138,12 @@ const Index = () => {
 
   return (
     <>
-      <SEOHead canonical="/" />
+      <SEOHead 
+        canonical="/"
+        title="Binaural Beats Generator — Free 432 Hz & 528 Hz | Cardinal Binaural"
+        description="Free binaural beats generator with 432 Hz & 528 Hz natural frequencies. 216+ presets for focus, deep sleep, meditation, manifestation, anxiety relief & healing. Zero-drift phase-locked synthesis. Try free now."
+        keywords="binaural beats, binaural beats generator, free binaural beats, 432 Hz, 528 Hz, binaural beats for sleep, binaural beats for focus, binaural beats for meditation, binaural beats for anxiety, brainwave entrainment, solfeggio frequencies, manifestation frequencies, healing frequencies, theta waves, alpha waves, delta waves, gamma waves, isochronic tones, meditation music, sleep sounds, focus music, study music, ADHD focus sounds, sound therapy, 432 Hz vs 440 Hz, 528 Hz love frequency, Schumann resonance, law of attraction"
+      />
       <StructuredData />
       <AdvancedSchemas />
       <PageSchemas pageType="home" />
