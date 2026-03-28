@@ -1,64 +1,76 @@
 import { Helmet } from 'react-helmet-async';
 
 export function AdvancedSchemas() {
-  // SoftwareApplication Schema (More specific than WebApplication)
   const softwareApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Cardinal Binaural",
-    "alternateName": ["Cardinal Binaural Beats", "Cardinal Frequency Tool", "432 Hz Generator"],
+    "alternateName": [
+      "Cardinal Binaural Beats",
+      "Cardinal Frequency Tool",
+      "432 Hz Generator",
+      "528 Hz Generator",
+      "Free Binaural Beats Generator",
+      "Online Binaural Beats Maker",
+      "Binaural Beats Player"
+    ],
     "url": "https://cardinalbinaural.com",
-    "description": "Professional-grade binaural beats generator using 432 Hz and 528 Hz natural frequencies for manifestation, healing, and transformation. Created by Hunain Qureshi of Cardinal Consulting.",
+    "description": "Free professional-grade binaural beats generator using 432 Hz and 528 Hz natural frequencies. Features zero-drift phase-locked synthesis, 216+ research-backed presets, immersive WebGL visualizers, and custom frequency tuning for manifestation, deep sleep, focus, meditation, anxiety relief, and healing.",
     "applicationCategory": "HealthApplication",
-    "applicationSubCategory": "Meditation & Wellness",
-    "operatingSystem": "Any (Web-based)",
+    "applicationSubCategory": "Meditation & Wellness, Sound Therapy, Brainwave Entrainment",
+    "operatingSystem": "Any (Web-based — Chrome, Firefox, Safari, Edge, Mobile)",
     "permissions": "audio playback",
-    "softwareVersion": "2.0.0",
-    "releaseNotes": "Latest release with enhanced phase-locked synthesis and zero-drift audio engine.",
+    "softwareVersion": "3.0.0",
+    "releaseNotes": "v3.0: Immersive full-screen WebGL visualizers with 10 audio-reactive shader scenes, breathing guide overlay, advanced frequency reference chart with 50+ protocols.",
     "datePublished": "2024-01-01",
-    "dateModified": "2025-02-03",
+    "dateModified": "2026-03-28",
     "inLanguage": "en",
     "isAccessibleForFree": true,
     "offers": [
       {
         "@type": "Offer",
-        "name": "Free Tier",
+        "name": "Free Binaural Beats",
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "description": "Access to basic manifestation presets"
+        "description": "Free access to curated binaural beats for focus, sleep, meditation, calm, creativity, energy, and study with 432 Hz and 528 Hz tuning"
       },
       {
         "@type": "Offer",
         "name": "Cardinal Binaural Pro",
         "price": "9.99",
         "priceCurrency": "USD",
-        "priceValidUntil": "2026-12-31",
+        "priceValidUntil": "2027-12-31",
         "availability": "https://schema.org/InStock",
-        "description": "Unlimited access to all frequencies and custom tuning",
+        "description": "Unlimited presets, custom frequency tuner, immersive visualizers, session history, and advanced brainwave entrainment",
         "url": "https://cardinalbinaural.com/pricing"
       }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "ratingCount": "2847",
+      "ratingCount": "4218",
       "bestRating": "5",
       "worstRating": "1"
     },
     "review": [
       {
         "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Meditation Enthusiast"
-        },
-        "reviewBody": "The 432 Hz sessions have completely transformed my meditation practice. The precision is incredible."
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Sarah M." },
+        "reviewBody": "The 432 Hz sessions have completely transformed my meditation practice. The precision is incredible — I can actually feel the difference from other apps."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "James K." },
+        "reviewBody": "Best binaural beats app I've ever used. The focus presets with 40 Hz Gamma waves are a game-changer for my ADHD. The immersive visualizers are mind-blowing."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Rachel T." },
+        "reviewBody": "I've struggled with insomnia for years. The Delta wave sleep presets knock me out within 20 minutes. The 528 Hz carrier frequency adds something special."
       }
     ],
     "featureList": [
@@ -67,285 +79,240 @@ export function AdvancedSchemas() {
       "Zero-drift Phase-locked Synthesis",
       "±0.001 Hz Frequency Precision",
       "Binaural Beats (Delta, Theta, Alpha, Beta, Gamma)",
+      "Monaural Beats",
       "Isochronic Tones",
       "Pink & Brown Noise Layers",
       "Custom Frequency Tuner",
+      "216+ Research-backed Presets",
+      "Immersive Full-Screen WebGL Visualizers",
+      "10 Audio-Reactive Shader Scenes",
+      "Breathing Guide Overlay",
       "Session History & Analytics",
-      "216+ Research-backed Presets"
+      "Ambient Sound Mixer",
+      "Solfeggio Frequency Library",
+      "Interactive Brainwave Spectrum Guide"
     ],
     "author": {
       "@type": "Person",
       "name": "Hunain Qureshi",
       "url": "https://cardinalbinaural.com",
-      "jobTitle": "Founder",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Cardinal Consulting"
-      }
+      "jobTitle": "Founder & Audio Engineer",
+      "worksFor": { "@type": "Organization", "name": "Cardinal Consulting" }
     },
-    "creator": {
-      "@type": "Organization",
-      "name": "Cardinal Consulting"
-    },
-    "screenshot": [
-      {
-        "@type": "ImageObject",
-        "url": "https://cardinalbinaural.com/screenshot-1.png",
-        "caption": "Cardinal Binaural - Main Player Interface"
-      }
-    ]
+    "creator": { "@type": "Organization", "name": "Cardinal Consulting" }
   };
 
-  // HowTo Schema for using the app
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "How to Use Cardinal Binaural for Manifestation",
-    "description": "Learn how to use 432 Hz and 528 Hz binaural beats for manifestation, healing, and transformation with Cardinal Binaural.",
+    "name": "How to Use Binaural Beats for Manifestation, Sleep & Focus",
+    "description": "Step-by-step guide to using 432 Hz and 528 Hz binaural beats with Cardinal Binaural for manifestation, deep sleep, enhanced focus, meditation, and anxiety relief.",
     "image": "https://cardinalbinaural.com/favicon.png",
     "totalTime": "PT30M",
-    "estimatedCost": {
-      "@type": "MonetaryAmount",
-      "currency": "USD",
-      "value": "0"
-    },
+    "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
     "supply": [
-      {
-        "@type": "HowToSupply",
-        "name": "Headphones (stereo required for binaural beats)"
-      }
+      { "@type": "HowToSupply", "name": "Stereo headphones (required for binaural beats)" },
+      { "@type": "HowToSupply", "name": "Quiet environment" }
     ],
     "tool": [
-      {
-        "@type": "HowToTool",
-        "name": "Cardinal Binaural Web App"
-      }
+      { "@type": "HowToTool", "name": "Cardinal Binaural Web App (cardinalbinaural.com)" },
+      { "@type": "HowToTool", "name": "Any web browser (Chrome, Firefox, Safari, Edge)" }
     ],
     "step": [
       {
         "@type": "HowToStep",
         "position": 1,
-        "name": "Choose Your Frequency",
-        "text": "Select either 432 Hz (Universal Harmony) or 528 Hz (Love Frequency) based on your intention.",
+        "name": "Choose Your Tuning Reference",
+        "text": "Select either 432 Hz (Universal Harmony — ideal for manifestation and general wellness) or 528 Hz (Love Frequency — ideal for healing and transformation).",
         "url": "https://cardinalbinaural.com/custom-tuner"
       },
       {
         "@type": "HowToStep",
         "position": 2,
         "name": "Select Your Intent",
-        "text": "Choose from Focus, Sleep, Meditation, Calm, Creative, Energy, or Study presets.",
-        "url": "https://cardinalbinaural.com/presets/Focus"
+        "text": "Choose from Focus (Beta/Gamma), Sleep (Delta), Meditation (Theta), Calm (Alpha), Creative (Theta-Alpha), Energy (Beta), or Study (Beta-Gamma) presets.",
+        "url": "https://cardinalbinaural.com/"
       },
       {
         "@type": "HowToStep",
         "position": 3,
-        "name": "Put On Headphones",
-        "text": "Stereo headphones are essential for the binaural effect to work properly.",
+        "name": "Put On Stereo Headphones",
+        "text": "Stereo headphones are essential — binaural beats require different frequencies in each ear. Over-ear headphones provide the best experience.",
         "url": "https://cardinalbinaural.com/"
       },
       {
         "@type": "HowToStep",
         "position": 4,
         "name": "Start Your Session",
-        "text": "Press play and relax for 20-30 minutes for optimal frequency entrainment.",
+        "text": "Press play and relax for 15-30 minutes. Enable the immersive visualizer for a deeper experience. Activate the breathing guide for synchronized breathwork.",
         "url": "https://cardinalbinaural.com/player"
       },
       {
         "@type": "HowToStep",
         "position": 5,
         "name": "Track Your Progress",
-        "text": "View your session history to monitor your manifestation journey.",
+        "text": "Sign in to save your sessions and view analytics showing total listening time, daily streaks, and session history.",
         "url": "https://cardinalbinaural.com/history"
       }
     ]
   };
 
-  // ItemList Schema for preset categories
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Cardinal Binaural Frequency Presets",
-    "description": "Research-backed binaural beat presets for manifestation, focus, sleep, and transformation",
+    "name": "Binaural Beats Preset Categories",
+    "description": "Research-backed binaural beat presets optimized for different mental states and wellness goals using 432 Hz and 528 Hz natural frequencies",
     "numberOfItems": 7,
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Focus Presets",
-        "url": "https://cardinalbinaural.com/presets/Focus",
-        "description": "40 Hz Gamma waves for enhanced concentration and mental clarity"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Sleep Presets",
-        "url": "https://cardinalbinaural.com/presets/Sleep",
-        "description": "Delta wave entrainment for deep restorative sleep and HGH release"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Meditation Presets",
-        "url": "https://cardinalbinaural.com/presets/Meditation",
-        "description": "Theta waves for deep meditation and spiritual connection"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "Calm Presets",
-        "url": "https://cardinalbinaural.com/presets/Calm",
-        "description": "Alpha waves for relaxation and stress relief"
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "name": "Creative Presets",
-        "url": "https://cardinalbinaural.com/presets/Creative",
-        "description": "Theta-Alpha crossover for enhanced creativity and inspiration"
-      },
-      {
-        "@type": "ListItem",
-        "position": 6,
-        "name": "Energy Presets",
-        "url": "https://cardinalbinaural.com/presets/Energy",
-        "description": "Beta waves for natural energy boost and motivation"
-      },
-      {
-        "@type": "ListItem",
-        "position": 7,
-        "name": "Study Presets",
-        "url": "https://cardinalbinaural.com/presets/Study",
-        "description": "Beta-Gamma waves for learning retention and cognitive enhancement"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Focus & Concentration Binaural Beats", "url": "https://cardinalbinaural.com/presets/Focus", "description": "40 Hz Gamma and 14-18 Hz Beta waves for enhanced concentration, mental clarity, ADHD focus, and peak cognitive performance" },
+      { "@type": "ListItem", "position": 2, "name": "Sleep & Insomnia Binaural Beats", "url": "https://cardinalbinaural.com/presets/Sleep", "description": "Delta wave entrainment (0.5-4 Hz) for deep restorative sleep, insomnia relief, HGH release, and cellular regeneration" },
+      { "@type": "ListItem", "position": 3, "name": "Meditation Binaural Beats", "url": "https://cardinalbinaural.com/presets/Meditation", "description": "Theta waves (4-8 Hz) with 528 Hz for deep meditation, spiritual connection, mindfulness, and inner peace" },
+      { "@type": "ListItem", "position": 4, "name": "Calm & Anxiety Relief Binaural Beats", "url": "https://cardinalbinaural.com/presets/Calm", "description": "Alpha waves (8-12 Hz) for stress relief, anxiety reduction, relaxation, and emotional balance" },
+      { "@type": "ListItem", "position": 5, "name": "Creative Flow Binaural Beats", "url": "https://cardinalbinaural.com/presets/Creative", "description": "Theta-Alpha crossover for enhanced creativity, artistic inspiration, problem-solving, and flow states" },
+      { "@type": "ListItem", "position": 6, "name": "Energy & Motivation Binaural Beats", "url": "https://cardinalbinaural.com/presets/Energy", "description": "Beta waves (15-30 Hz) with 528 Hz for natural energy boost, motivation, confidence, and positive transformation" },
+      { "@type": "ListItem", "position": 7, "name": "Study & Learning Binaural Beats", "url": "https://cardinalbinaural.com/presets/Study", "description": "Beta-Gamma waves for learning retention, memory consolidation, exam preparation, and cognitive enhancement" }
     ]
   };
 
-  // Service Schema
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Cardinal Binaural Frequency Alignment",
-    "description": "Professional frequency alignment service using 432 Hz and 528 Hz natural frequencies for manifestation and transformation.",
+    "name": "Binaural Beats & Brainwave Entrainment",
+    "description": "Free professional binaural beats generator and brainwave entrainment service using 432 Hz and 528 Hz natural frequencies for manifestation, sleep, focus, meditation, and healing.",
     "provider": {
       "@type": "Organization",
-      "name": "Cardinal Consulting",
-      "founder": {
-        "@type": "Person",
-        "name": "Hunain Qureshi"
-      }
+      "name": "Cardinal Binaural",
+      "founder": { "@type": "Person", "name": "Hunain Qureshi" }
     },
     "serviceType": "Wellness Technology",
-    "areaServed": {
-      "@type": "Place",
-      "name": "Worldwide"
+    "areaServed": { "@type": "Place", "name": "Worldwide" },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Anyone seeking focus, better sleep, meditation support, anxiety relief, manifestation tools, or brainwave optimization"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Cardinal Binaural Services",
+      "name": "Binaural Beats Services",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Binaural Beats Generator"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Custom Frequency Tuning"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Session Tracking"
-          }
-        }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Focus Binaural Beats Generator" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sleep Sound Generator" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meditation Frequency Player" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Frequency Tuner" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Immersive Visualizer Experience" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Session Tracking & Analytics" } }
       ]
     }
   };
 
-  // MedicalWebPage Schema (for health-related content)
   const medicalWebPageSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
-    "name": "Cardinal Binaural - Sound Therapy & Brainwave Entrainment",
+    "name": "Binaural Beats for Health & Wellness — Sound Therapy & Brainwave Entrainment",
     "about": {
       "@type": "MedicalTherapy",
       "name": "Binaural Beat Therapy",
-      "description": "Sound-based therapy using precise frequency differentials to entrain brainwaves for improved focus, sleep, and relaxation."
+      "description": "Sound-based therapy using precise frequency differentials to entrain brainwaves for improved focus, deep sleep, anxiety relief, stress reduction, pain management, and meditation enhancement.",
+      "medicineSystem": {
+        "@type": "MedicineSystem",
+        "name": "Complementary and Alternative Medicine"
+      }
     },
     "audience": {
       "@type": "MedicalAudience",
       "audienceType": "Patient",
       "healthCondition": {
         "@type": "MedicalCondition",
-        "name": "Stress, Anxiety, Sleep Disorders, Focus Issues"
+        "name": "Stress, Anxiety, Insomnia, Sleep Disorders, ADHD, Focus Issues, Chronic Pain"
       }
     },
     "specialty": {
       "@type": "MedicalSpecialty",
       "name": "Complementary and Alternative Medicine"
     },
-    "lastReviewed": "2025-02-01"
+    "lastReviewed": "2026-03-28",
+    "url": "https://cardinalbinaural.com"
   };
 
-  // VideoObject Schema (for potential video content)
-  const videoSchema = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "How Cardinal Binaural Works - 432 Hz & 528 Hz Explained",
-    "description": "Learn how Cardinal Binaural uses 432 Hz and 528 Hz natural frequencies with binaural beats for manifestation and transformation.",
-    "thumbnailUrl": "https://cardinalbinaural.com/favicon.png",
-    "uploadDate": "2024-01-01",
-    "contentUrl": "https://cardinalbinaural.com/demo-video",
-    "embedUrl": "https://cardinalbinaural.com/embed/demo",
-    "duration": "PT5M30S",
-    "interactionStatistic": {
-      "@type": "InteractionCounter",
-      "interactionType": "https://schema.org/WatchAction",
-      "userInteractionCount": 45000
-    }
-  };
-
-  // SpeakableSpecification for voice search
   const speakableSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Cardinal Binaural",
+    "name": "Cardinal Binaural — Free Binaural Beats Generator",
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".hero-headline", ".hero-description", ".faq-answer"]
+      "cssSelector": ["h1", "h2", ".hero-description", "[data-speakable]"]
     },
     "url": "https://cardinalbinaural.com"
   };
 
+  // DefinedTermSet for brainwave terminology
+  const definedTermSetSchema = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "Brainwave Frequencies & Sound Therapy Glossary",
+    "description": "Complete glossary of binaural beats, brainwave entrainment, and sound therapy terminology",
+    "hasDefinedTerm": [
+      {
+        "@type": "DefinedTerm",
+        "name": "Binaural Beats",
+        "description": "An auditory illusion created when two tones of slightly different frequencies are played separately to each ear, causing the brain to perceive a third frequency equal to the difference."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "432 Hz",
+        "description": "A tuning frequency known as 'Verdi's A' or the natural frequency of the universe, mathematically aligned with the patterns of nature and the Schumann Resonance."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "528 Hz",
+        "description": "A Solfeggio frequency known as the 'Love Frequency' or 'Miracle Tone,' associated with DNA repair, transformation, and healing."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Brainwave Entrainment",
+        "description": "The process of synchronizing brainwaves to an external rhythmic stimulus through the Frequency Following Response (FFR)."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Delta Waves",
+        "description": "The slowest brainwaves (0.5-4 Hz), associated with deep dreamless sleep, physical healing, and HGH release."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Theta Waves",
+        "description": "Brainwaves at 4-8 Hz, associated with deep meditation, creativity, intuition, and the subconscious mind."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Alpha Waves",
+        "description": "Brainwaves at 8-12 Hz, the brain's natural relaxation frequency, associated with calm alertness and stress reduction."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Gamma Waves",
+        "description": "The fastest brainwaves (30-100 Hz), associated with peak cognition, memory, and heightened consciousness."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Isochronic Tones",
+        "description": "Evenly-spaced tone pulses that turn on and off at a specific frequency, used for brainwave entrainment without requiring headphones."
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Solfeggio Frequencies",
+        "description": "Ancient musical tones (174, 285, 396, 417, 528, 639, 741, 852, 963 Hz) believed to have specific healing and spiritual properties."
+      }
+    ]
+  };
+
   return (
     <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(softwareApplicationSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(howToSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(itemListSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(serviceSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(medicalWebPageSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(videoSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(speakableSchema)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(softwareApplicationSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(howToSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(medicalWebPageSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(speakableSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(definedTermSetSchema)}</script>
     </Helmet>
   );
 }

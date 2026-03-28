@@ -16,9 +16,9 @@ const BASE_URL = 'https://cardinalbinaural.com';
 const DEFAULT_IMAGE = 'https://storage.googleapis.com/gpt-engineer-file-uploads/nTne89dIdqMwvcwTIDSqJv5dAP13/social-images/social-1767265152753-Cardinal%20Binaural%20-%20Manifestation%20Through%20Natural%20Frequencies%20_%20432%20Hz%20%26%20528%20Hz%20(2).png';
 
 export function SEOHead({
-  title = 'Cardinal Binaural - Manifestation Through Natural Frequencies | 432 Hz & 528 Hz',
-  description = 'Align your frequency with 432 Hz & 528 Hz for manifestation, healing, and transformation. Natural frequency alignment tool created by Hunain Qureshi of Cardinal Consulting.',
-  keywords = 'manifestation tool, 432 Hz, 528 Hz, frequency alignment, binaural beats, healing frequencies, transformation, universal harmony, law of attraction, brainwave entrainment, meditation music, solfeggio frequencies, DNA repair, Cardinal Binaural, Hunain Qureshi, Cardinal Consulting',
+  title = 'Binaural Beats Generator — Free 432 Hz & 528 Hz | Cardinal Binaural',
+  description = 'Free binaural beats generator with 432 Hz & 528 Hz natural frequencies. 216+ presets for focus, deep sleep, meditation, manifestation, anxiety relief & healing. Zero-drift phase-locked synthesis with ±0.001 Hz precision.',
+  keywords = 'binaural beats, 432 Hz, 528 Hz, binaural beats generator, free binaural beats, binaural beats for sleep, binaural beats for focus, binaural beats for meditation, binaural beats for anxiety, brainwave entrainment, solfeggio frequencies, manifestation tool, healing frequencies, theta waves, alpha waves, delta waves, gamma waves, beta waves, isochronic tones, monaural beats, frequency generator, sound therapy, meditation music, sleep music, focus music, ADHD focus, study music, binaural beats online, 432 Hz vs 440 Hz, 528 Hz love frequency, DNA repair frequency, Schumann resonance, law of attraction, manifestation frequencies, Cardinal Binaural, Hunain Qureshi',
   canonical,
   ogImage = DEFAULT_IMAGE,
   ogType = 'website',
@@ -69,7 +69,7 @@ export function SEOHead({
       <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Cardinal Binaural - 432 Hz & 528 Hz Manifestation Tool" />
+      <meta property="og:image:alt" content="Cardinal Binaural — Free Binaural Beats Generator with 432 Hz & 528 Hz" />
       <meta property="og:site_name" content="Cardinal Binaural" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:locale:alternate" content="en_GB" />
@@ -88,7 +88,7 @@ export function SEOHead({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content="Cardinal Binaural - 432 Hz & 528 Hz Manifestation Tool" />
+      <meta name="twitter:image:alt" content="Cardinal Binaural — Free Binaural Beats Generator with 432 Hz & 528 Hz" />
       
       {/* Additional Search Engine Meta */}
       <meta name="author" content="Hunain Qureshi, Cardinal Consulting" />
@@ -97,12 +97,13 @@ export function SEOHead({
       <meta name="copyright" content="Cardinal Binaural by Cardinal Consulting" />
       <meta name="distribution" content="global" />
       <meta name="rating" content="general" />
-      <meta name="revisit-after" content="3 days" />
+      <meta name="revisit-after" content="2 days" />
       <meta name="coverage" content="Worldwide" />
       <meta name="target" content="all" />
       <meta name="audience" content="all" />
-      <meta name="classification" content="Health, Wellness, Meditation, Manifestation" />
+      <meta name="classification" content="Health, Wellness, Meditation, Manifestation, Sound Therapy, Binaural Beats, Brainwave Entrainment" />
       <meta name="category" content="Health & Wellness" />
+      <meta name="subject" content="Binaural Beats, 432 Hz, 528 Hz, Brainwave Entrainment, Sound Therapy" />
       
       {/* Apple / iOS */}
       <meta name="apple-mobile-web-app-title" content="Cardinal Binaural" />
@@ -110,7 +111,7 @@ export function SEOHead({
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       
       {/* Microsoft */}
-      <meta name="msapplication-tooltip" content="Cardinal Binaural - Manifestation Frequencies" />
+      <meta name="msapplication-tooltip" content="Free Binaural Beats Generator — 432 Hz & 528 Hz" />
       <meta name="msapplication-starturl" content={BASE_URL} />
       <meta name="msapplication-navbutton-color" content="#34d399" />
       
