@@ -129,10 +129,10 @@ export default function Pricing() {
   return (
     <>
       <SEOHead 
-        title="Pricing - Cardinal Binaural Pro | Unlimited Frequencies & Features"
-        description="Unlock unlimited access to 216+ research-backed binaural beat presets, custom frequency tuning, and session tracking. 7-day free trial. $9.99/month."
+        title="Cardinal Binaural Pro — Unlimited Binaural Beats | $9.99/mo"
+        description="Unlock 216+ binaural beats presets, custom frequency tuner, immersive visualizers, and session tracking. 7-day free trial. Cancel anytime. $9.99/month."
         canonical="/pricing"
-        keywords="Cardinal Binaural Pro, binaural beats subscription, premium meditation app, frequency alignment subscription, manifestation tool pricing"
+        keywords="binaural beats pro, premium binaural beats, binaural beats subscription, binaural beats app price, best binaural beats app, Cardinal Binaural Pro pricing, unlimited binaural beats, meditation app subscription"
         ogType="product"
       />
       <PageSchemas pageType="pricing" />

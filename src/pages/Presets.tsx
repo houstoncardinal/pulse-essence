@@ -64,10 +64,10 @@ export default function Presets() {
   return (
     <>
       <SEOHead 
-        title={`${intent} Binaural Beats - Cardinal Binaural | 432 Hz & 528 Hz`}
-        description={`${intent} binaural beats using 432 Hz and 528 Hz natural frequencies. Research-backed presets for optimal brainwave entrainment and ${intent?.toLowerCase()} enhancement.`}
+        title={`${intent} Binaural Beats — Free ${intent} Frequencies | Cardinal Binaural`}
+        description={`Free ${intent?.toLowerCase()} binaural beats with 432 Hz & 528 Hz natural frequencies. Research-backed presets for ${intent?.toLowerCase()} enhancement using precision brainwave entrainment. No download required.`}
         canonical={`/presets/${intent}`}
-        keywords={`${intent?.toLowerCase()} binaural beats, ${intent?.toLowerCase()} frequencies, 432 Hz ${intent?.toLowerCase()}, 528 Hz ${intent?.toLowerCase()}, brainwave entrainment, meditation music`}
+        keywords={`${intent?.toLowerCase()} binaural beats, best binaural beats for ${intent?.toLowerCase()}, free ${intent?.toLowerCase()} binaural beats, ${intent?.toLowerCase()} frequency, ${intent?.toLowerCase()} brainwave entrainment, 432 Hz ${intent?.toLowerCase()}, 528 Hz ${intent?.toLowerCase()}, ${intent?.toLowerCase()} sound therapy, ${intent?.toLowerCase()} meditation music, ${intent?.toLowerCase()} Hz frequency`}
       />
       <PageSchemas pageType="preset" presetIntent={intent} />
       <div className="min-h-screen bg-background">
